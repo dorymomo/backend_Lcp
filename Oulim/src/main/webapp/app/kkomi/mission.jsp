@@ -7,22 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>mission</title>
 <!-- 기본css -->
-  <link rel="stylesheet" href="Oulim/asset/css/core/reset.css" />
-  <link rel="stylesheet" href="Oulim/asset/css/core/variable.css" />
-  <link rel="stylesheet" href="Oulim/asset/css/core/typography.css" />
-  <link rel="stylesheet" href="Oulim/asset/css/core/layout.css" />
+  <link rel="stylesheet" href="/Oulim/asset/css/core/reset.css" />
+  <link rel="stylesheet" href="/Oulim/asset/css/core/variable.css" />
+  <link rel="stylesheet" href="/Oulim/asset/css/core/typography.css" />
+  <link rel="stylesheet" href="/Oulim/asset/css/core/layout.css" />
 <!-- 컴포넌트 -->
-  <link rel="stylesheet" href="Oulim/asset/css/component/button.css">
-  <link rel="stylesheet" href="Oulim/asset/css/component/tab.css">
-  <link rel="stylesheet" href="Oulim/asset/css/pages/kkomi/mission.css" />
+  <link rel="stylesheet" href="/Oulim/asset/css/component/button.css">
+  <link rel="stylesheet" href="/Oulim/asset/css/component/tab.css">
+  <link rel="stylesheet" href="/Oulim/asset/css/pages/kkomi/mission.css" />
 <!-- 스크립트 -->
-  <script src="Oulim/asset/js/pages/kkomi/mission.js"></script>
-  <script src="Oulim/asset/js/components/tab.js"></script>
-  <script defer src="Oulim/asset/js/pages/main/include.js"></script> 
+  <script src="/Oulim/asset/js/pages/kkomi/mission.js"></script>
+  <script src="/Oulim/asset/js/components/tab.js"></script>
+  
+  <jsp:include page="/app/include/header-login.jsp" />
+   
 </head>
 <body>
-    <div id="header"></div>
-
     <main class="l-main">
         <div class="l-container">
             <section class="mission-header">
@@ -83,8 +83,8 @@
                 <button class="c-button c-button--secondary c-button--lg" onclick="location.href='/training'">수련소로 돌아가기</button>
             </div>
         </div>
-    </main>
-
-    <div id="footer"></div>
+    </main>    
 </body>
+<jsp:include page="/app/include/footer.jsp" />
+
 </html>

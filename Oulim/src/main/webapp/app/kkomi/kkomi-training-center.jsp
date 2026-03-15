@@ -7,26 +7,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Kkomi-training-center</title>
 
-<link rel="stylesheet" href="Oulim/asset/css/core/reset.css" />
-<link rel="stylesheet" href="Oulim/asset/css/core/variable.css" />
-<link rel="stylesheet" href="Oulim/asset/css/core/typography.css" />
-<link rel="stylesheet" href="Oulim/asset/css/core/layout.css" />
+<link rel="stylesheet" href="/Oulim/asset/css/core/reset.css" />
+<link rel="stylesheet" href="/Oulim/asset/css/core/variable.css" />
+<link rel="stylesheet" href="/Oulim/asset/css/core/typography.css" />
+<link rel="stylesheet" href="/Oulim/asset/css/core/layout.css" />
 
-<link rel="stylesheet" href="Oulim/asset/css/component/badge.css">
-<link rel="stylesheet" href="Oulim/asset/css/pages/kkomi/Kkomi-training-center.css">
+<link rel="stylesheet" href="/Oulim/asset/css/component/badge.css">
+<link rel="stylesheet" href="/Oulim/asset/css/pages/kkomi/Kkomi-training-center.css">
 
-<script defer src="Oulim/asset/js/pages/kkomi/KKomi-trainiing-center.js"></script>
-
-<script defer>
-    fetch('/Oulim/header-login.html')
-      .then(r => r.text())
-      .then(t => document.querySelector("#header").innerHTML = t)
-
-    fetch('/Oulim/footer.html')
-      .then(r => r.text())
-      .then(t => document.querySelector("#footer").innerHTML = t)
-  </script>
-
+<script defer src="/Oulim/asset/js/pages/kkomi/KKomi-trainiing-center.js"></script>
+<jsp:include page="/app/include/header-login.jsp" />
 </head>
 
 <body>
@@ -82,6 +72,7 @@
 			</section>
 		</div>
 	</main>
-	<div id="footer"></div>
 </body>
+<jsp:include page="/app/include/footer.jsp" />
+
 </html>

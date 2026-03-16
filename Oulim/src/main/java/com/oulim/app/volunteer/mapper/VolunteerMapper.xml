@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="VolunteerMapper">
+
+    <select id="selectVolunteerList" resultType="com.oulim.app.volunteer.dto.VolunteerDTO">
+
+        SELECT
+            Volun_Act_No        AS volunActNo,
+            Volun_Act_Title     AS volunActTitle,
+            Volun_Act_Address   AS volunActAddress,
+            Volun_Act_Proc_Begin AS volunActProcBegin,
+            Volun_Act_Proc_End   AS volunActProcEnd,
+            Volun_Act_Point     AS volunActPoint,
+            Volun_Act_Act_Type  AS volunActType
+        FROM TBL_VOLUN_ACTIVITY
+        ORDER BY Volun_Act_No DESC
+
+    </select>
+
+</mapper>

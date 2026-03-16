@@ -1,3 +1,7 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+String path = request.getContextPath();
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,29 +11,35 @@
   <title>봉사 활동 상세</title>
 
   <!-- base css 필수 삽입-->
-  <link rel="stylesheet" href="/Oulim/asset/css/core/reset.css" />
-  <link rel="stylesheet" href="/Oulim/asset/css/core/variable.css" />
-  <link rel="stylesheet" href="/Oulim/asset/css/core/typography.css" />
-  <link rel="stylesheet" href="/Oulim/asset/css/core/layout.css">
+<link rel="stylesheet" href="<%=path%>/asset/css/core/reset.css">
+<link rel="stylesheet" href="<%=path%>/asset/css/core/variable.css">
+<link rel="stylesheet" href="<%=path%>/asset/css/core/Typography.css">
+<link rel="stylesheet" href="<%=path%>/asset/css/core/layout.css">
 
-  <!-- 컨포넌트 css 선택-->
-  <link rel="stylesheet" href="/Oulim/asset/css/component/pagination.css" />
-  <link rel="stylesheet" href="/Oulim/asset/css/component/input.css" />
-  <link rel="stylesheet" href="/Oulim/asset/css/component/button.css" />
-  <link rel="stylesheet" href="/Oulim/asset/css/component/list.css" />
-  <link rel="stylesheet" href="/Oulim/asset/css/component/card.css" />
-  <link rel="stylesheet" href="/Oulim/asset/css/component/DetailCard.css" />
-  <link rel="stylesheet" href="/Oulim/asset/css/component/badge.css" />
+<link rel="stylesheet" href="<%=path%>/asset/css/component/pagination.css">
+<link rel="stylesheet" href="<%=path%>/asset/css/component/input.css">
+<link rel="stylesheet" href="<%=path%>/asset/css/component/button.css">
+<link rel="stylesheet" href="<%=path%>/asset/css/component/list.css">
+<link rel="stylesheet" href="<%=path%>/asset/css/component/card.css">
+<link rel="stylesheet" href="<%=path%>/asset/css/component/DetailCard.css">
+<link rel="stylesheet" href="<%=path%>/asset/css/component/badge.css">
+
+<link rel="stylesheet" href="<%=path%>/asset/css/pages/volunteer-activity/volunAct-detail.css">
+
+<link rel="stylesheet" href="<%=path%>/asset/css/pages/volunteer-activity/volunAct-detail.css">
+
+<script defer src="<%=path%>/asset/js/pages/volunteer-activity/volunAct-detail.js"></script>
 
   <!-- css 연결 -->
-  <link rel="stylesheet" href="/Oulim/asset/css/pages/volunteer-activity/volunAct-detail.css">
+  <link rel="stylesheet" href="<%=path%>/asset/css/pages/volunteer-activity/volunAct-detail.css">
   <!-- js 연결 -->
-  <script defer src="/Oulim/asset/js/pages/volunteer-activity/volunAct-detail.js"></script>
+  <script defer src="${pageContext.request.contextPath}/asset/js/pages/volunteer-activity/volunAct-detail.js"></script>
   <!-- <script defer src="/Oulim/asset/js/pages/main/include.js"></script> -->
+
 </head>
 <script defer>
-  fetch('/Oulim/header-login.html').then(r => r.text()).then(t => header.innerHTML = t)
-  fetch('/Oulim/footer.html').then(r => r.text()).then(t => footer.innerHTML = t)
+fetch('${pageContext.request.contextPath}/header-login.jsp')
+fetch('${pageContext.request.contextPath}/footer.jsp')
 </script>
 <div id="header"></div>
 

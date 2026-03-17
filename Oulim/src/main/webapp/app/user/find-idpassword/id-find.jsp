@@ -40,7 +40,8 @@
 	<div class="l-main">
 		<div class="l-container">
 			<div class="p-id-find">
-				<form action="">
+				<form action="${pageContext.request.contextPath}/user/idFindOk.usr" method="post">
+					<input type="hidden" id="find-id-error-message" value="${error}">
 					<div class="l-id-find-layout">
 						<div>
 							<h2>아이디 찾기</h2>
@@ -52,19 +53,19 @@
 
 						<div class="c-id-find-input">
 							<h6>이름</h6>
-							<input type="text" name="" id="find-id-user-name" class="c-input"
+							<input type="text" name="userName" id="find-id-user-name" class="c-input"
 								placeholder="이름 입력해주세요" />
 							<p id="is-find-id-user-name-error" class="is-error-text"></p>
 						</div>
 						<div class="c-id-find-input">
 							<h6>생년월일</h6>
-							<input type="text" name="" id="find-id-user-birth"
+							<input type="text" name="userBirth" id="find-id-user-birth"
 								class="c-input" placeholder="생년월일 입력해주세요" />
 							<p id="is-find-id-user-birth-error" class="is-error-text"></p>
 						</div>
 						<div class="c-id-find-input">
 							<h6>이메일</h6>
-							<input type="text" name="" id="find-id-user-email"
+							<input type="text" name="userEmail" id="find-id-user-email"
 								class="c-input" placeholder="이메일 입력해주세요" />
 							<p id="is-find-id-user-email-error" class="is-error-text"></p>
 						</div>
@@ -83,7 +84,7 @@
 							</div>
 						</div>
 						<div class="c-id-find-nextbtn">
-							<button type="button" id="is-id-find-btn"
+							<button type="submit" id="is-id-find-btn"
 								class="c-button c-button--primary c-button--md">
 								아이디 찾기</button>
 						</div>

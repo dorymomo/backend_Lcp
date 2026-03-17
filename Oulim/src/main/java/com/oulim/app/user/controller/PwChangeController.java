@@ -9,17 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 import com.oulim.app.common.controller.Execute;
 import com.oulim.app.common.controller.Result;
 
-public class LoginController implements Execute {
+public class PwChangeController implements Execute{
 
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		Result result = new Result();
-
-		result.setPath("/app/user/login/login.jsp");
-		result.setRedirect(false);
-
-		return result;
+		// TODO Auto-generated method stub
+		return null;
 	}
+
 }

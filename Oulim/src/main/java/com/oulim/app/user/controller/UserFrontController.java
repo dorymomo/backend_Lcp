@@ -51,6 +51,18 @@ public class UserFrontController extends HttpServlet {
 		} else if (target.equals("/user/logout.usr")) {
 			System.out.println("로그아웃 요청");
 			execute = new LogoutController();
+
+		} else if (target.equals("/user/normalJoinFirstOk.usr")) {
+			System.out.println("일반회원 1차 입력 처리 요청");
+			execute = new NormalJoinFirstOkController();
+
+		} else if (target.equals("/user/normalJoinSecondOk.usr")) {
+			System.out.println("일반회원 2차 입력 처리 요청");
+			execute = new NormalJoinSecondOkController();
+			
+		} else if (target.equals("/user/idFindOk.usr")) {
+			System.out.println("아이디 찾기 처리 요청");
+		    execute = new IdFindController();
 		}
 
 		if (execute != null) {

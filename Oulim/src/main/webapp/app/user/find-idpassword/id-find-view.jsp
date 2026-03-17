@@ -29,7 +29,7 @@
     <div class="l-main">
       <div class="l-container">
         <div class="p-id-find-view">
-          <form action="${pageContext.request.contextPath}/front/html/user/find-idpassword/password-find.html">
+          <form action="${pageContext.request.contextPath}/user/passwordFind.usr" method="get">
             <div class="l-id-find-view-layout">
               <div>
                 <h2>아이디 현황</h2>
@@ -45,7 +45,7 @@
                 </div>
 
                 <div>
-                  <div><p>sdsdz123***</p></div>
+                  <div><p>${userId}</p></div>
                 </div>
               </div>
 
@@ -53,8 +53,8 @@
                 <button class="c-button c-button--primary c-button--md">
                   비밀번호 찾기
                 </button>
-                <button class="c-button c-button--secondary c-button--md" type="button"
-                onclick="location.href='${pageContext.request.contextPath}/front/html/user/login/login.html'">
+                <button type="button" class="c-button c-button--secondary c-button--md"
+      			onclick="location.href='${pageContext.request.contextPath}/user/login.usr'">
                   로그인 페이지 이동하기
                 </button>
               </div>

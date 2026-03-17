@@ -4,7 +4,7 @@ public class OrganDTO {
 	
 	private int organNo;
 	private String organName;
-	private String organCert;
+	private String organCertNum;
 	
 	public int getOrganNo() {
 		return organNo;
@@ -18,16 +18,18 @@ public class OrganDTO {
 	public void setOrganName(String organName) {
 		this.organName = organName;
 	}
-	public String getOrganCert() {
-		return organCert;
+	public String getOrganCertNum() {
+		return organCertNum;
 	}
-	public void setOrganCert(String organCert) {
-		this.organCert = organCert;
+	public void setOrganCertNum(String organCertNum) {
+		this.organCertNum = organCertNum;
 	}
-	
 	@Override
 	public String toString() {
-		return "OrganDTO [organNo=" + organNo + ", organName=" + organName + ", organCert=" + organCert + "]";
+		return "OrganDTO [organNo=" + organNo + ", organName=" + organName + ", organCertNum=" + organCertNum + "]";
 	}
+	
+	
+	
 	
 }

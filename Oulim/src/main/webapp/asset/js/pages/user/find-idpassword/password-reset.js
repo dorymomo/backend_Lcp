@@ -31,13 +31,17 @@ resetBtn.addEventListener("click", function (e) {
     hasError = true;
   }
 
-   if (password.value !== passwordCheck.value) {
+  if (
+    password.value.trim() !== "" &&
+    passwordCheck.value.trim() !== "" &&
+    password.value !== passwordCheck.value
+  ) {
     passwordCheckError.textContent = "비밀번호가 일치하지 않습니다.";
     passwordCheck.classList.add("is-error");
     if (!hasError) passwordCheck.focus();
     hasError = true;
   }
-
+  
   if (hasError) {
     e.preventDefault();
     alert("입력값을 확인해주세요.");

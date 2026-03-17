@@ -4,7 +4,7 @@
 }
 
 .l-signup-verify-company-layout{
-    width: 263px;
+    width: 500px;
     margin: 0 auto;
     justify-content: center;
     align-items: center;
@@ -16,7 +16,7 @@
 }
 
 .c-signup-verify-company-input{
-    width: 263px;
+    width: 500px;
 }
 .c-signup-verify-company-input h6{
     margin: 10px 0;
@@ -43,7 +43,7 @@
 }
 .l-signup-verify-company-number-layout div:first-child input{
     
-    width: 150px;
+    width: 300px;
 }
 .l-signup-verify-company-number-layout div:last-child{
     margin: auto;
@@ -66,7 +66,7 @@
     margin: 10px 0;
 }
 .c-siginup-verify-company-filename{
-    width: 170px;
+    width: 500px;
     height: 40px;
     border: none;
     background:var(--color-secondary-disable);

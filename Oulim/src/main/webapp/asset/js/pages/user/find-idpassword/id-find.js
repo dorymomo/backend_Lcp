@@ -5,8 +5,13 @@ const email = document.getElementById("find-id-user-email");
 const userNameError = document.getElementById("is-find-id-user-name-error");
 const birthError = document.getElementById("is-find-id-user-birth-error");
 const emailError = document.getElementById("is-find-id-user-email-error");
-
+const errorMessage = document.getElementById("find-id-error-message");
 const findBtn = document.getElementById("is-id-find-btn");
+
+
+if (errorMessage && errorMessage.value.trim() !== "") {
+    alert(errorMessage.value);
+}
 
 findBtn.addEventListener("click", function (e) {
   let hasError = false;
@@ -40,6 +45,7 @@ findBtn.addEventListener("click", function (e) {
     hasError = true;
   }
 
+  
   if (hasError) {
     e.preventDefault();
     alert("입력값을 확인해주세요.");

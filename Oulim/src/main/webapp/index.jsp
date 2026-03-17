@@ -10,11 +10,12 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/core/reset.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/core/variable.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/core/layout.css" />
-   
+   	<link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/core/Typography.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/component/badge.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/component/button.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/pages/main/main.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/pages/main/header-login.css"/>
-   <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/pages/main/footer.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/pages/main/footer.css" />
     <script defer src="${pageContext.request.contextPath}/asset/js/pages/main/main.js"></script>
 </head>
 <body>
@@ -23,7 +24,6 @@
 
         <section class="p-main-visual">
             <div class="l-container">
-
                 <div class="visual-card">
                     <div class="visual-text">
                         <div class="visual-badge">LV.1 꼬미와 첫걸음 🐾</div>
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                     <div class="visual-char">
-                        <img src="/Oulim/asset/image/character/komi-lv1.svg" alt="꼬미" class="komi-main-img">
+                        <img src="${pageContext.request.contextPath}/asset/image/character/komi-lv1.svg" alt="꼬미" class="komi-main-img">
                     </div>
                 </div>
 

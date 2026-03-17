@@ -39,9 +39,7 @@
 	<div class="l-main">
 		<div class="l-container">
 			<div class="p-signup">
-				<form
-					action="${pageContext.request.contextPath}/front/html/user/signin/signup-verify.html"
-					method="get">
+				<form action="${pageContext.request.contextPath}/app/user/signin/signup-verify.jsp" method="get">
 					<div class="l-signup-main">
 						<div>
 							<h2>회원가입</h2>

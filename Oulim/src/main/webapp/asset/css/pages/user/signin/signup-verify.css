@@ -4,7 +4,7 @@
 }
 
 .l-signup-verify-layout{
-    width: 263px;
+    width: 500px;
     margin: 0 auto;
     justify-content: center;
     align-items: center;
@@ -16,7 +16,7 @@
 }
 
 .c-signup-verify-input{
-    width: 263px;
+    width: 500px;
 }
 .c-signup-verify-input h6{
     margin: 10px 0;
@@ -26,7 +26,7 @@
     gap: 10px;
 }
 .c-signup-btn {
-    width: 180px;
+    
     white-space: nowrap;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .c-signup-verify-input-number{  
-    width: 155px;
+    width: 500px;
     margin-top: 10px;
 
 }
@@ -51,19 +51,20 @@
 }
 .l-signup-verify-number-layout div:first-child input{
     
-    width: 150px;
+    width: 300px;
 }
 .l-signup-verify-number-layout div:last-child{
-    margin: auto;
+    margin: 0 -8px;
 }
 
 .l-signup-verify-number-layout div:last-child button{
     width:100px;
+    margin: 0 10px;
 }
 .c-signup-verify-numbertime{
     position: absolute;
     top: 10px;
-    right: 5px;
+    right: 18px;
 }
 .c-signup-verify-nextbtn button{
     width: 100%;

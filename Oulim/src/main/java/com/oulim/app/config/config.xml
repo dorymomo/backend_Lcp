@@ -22,7 +22,6 @@
 		<typeAlias type="com.oulim.app.user.dto.CurrencyDTO" alias="CurrencyDTO"></typeAlias>
 		<typeAlias type="com.oulim.app.user.dto.OrganCertDTO" alias="OrganCertDTO"></typeAlias>
 		<typeAlias type="com.oulim.app.user.dto.OrganDTO" alias="OrganDTO"></typeAlias>
-		<typeAlias type="com.oulim.app.user.dto.OrganUserDTO" alias="OrganUserDTO"></typeAlias>
 		
 		<!-- kkomi DTO Alias -->
 		<typeAlias type="com.oulim.app.kkomi.dto.KkomiDTO" alias="KkomiDTO"></typeAlias>

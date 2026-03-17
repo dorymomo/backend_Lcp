@@ -12,8 +12,17 @@ public class UserDAO {
     public UserDAO() {
         sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
     }
-
+    
+    public void normaljoin(UserDTO userDTO) {
+    	sqlSession.insert("user.normaljoin", userDTO);
+    }
+    
     public UserDTO login(UserDTO userDTO) {
     	return sqlSession.selectOne("user.login", userDTO);
     }
+    
+    public String findId(UserDTO userDTO) {
+        return sqlSession.selectOne("user.findId", userDTO);
+    }
+    
 }

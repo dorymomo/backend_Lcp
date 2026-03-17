@@ -3,14 +3,14 @@ package com.oulim.app.user.dto;
 import java.util.Date;
 
 public class UserDTO {
-	private Long userNo;
+	private int userNo;
     private String userName;
     private String userId;
     private String userPw;
     private String userBirth;
     private String userEmail;
-    private Integer userType;
-    private Integer userStatus;
+    private int userType;
+    private int userStatus;
     private Date userLastLogin;
     private String userNickname;
     private String organName;
@@ -19,11 +19,10 @@ public class UserDTO {
     private String userAddressDetail;
     private String userPostnum;
     
-	
-	public Long getUserNo() {
+	public int getUserNo() {
 		return userNo;
 	}
-	public void setUserNo(Long userNo) {
+	public void setUserNo(int userNo) {
 		this.userNo = userNo;
 	}
 	public String getUserName() {
@@ -56,16 +55,16 @@ public class UserDTO {
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
-	public Integer getUserType() {
+	public int getUserType() {
 		return userType;
 	}
-	public void setUserType(Integer userType) {
+	public void setUserType(int userType) {
 		this.userType = userType;
 	}
-	public Integer getUserStatus() {
+	public int getUserStatus() {
 		return userStatus;
 	}
-	public void setUserStatus(Integer userStatus) {
+	public void setUserStatus(int userStatus) {
 		this.userStatus = userStatus;
 	}
 	public Date getUserLastLogin() {
@@ -119,5 +118,6 @@ public class UserDTO {
 				+ organName + ", userPhoneNum=" + userPhoneNum + ", userAddress=" + userAddress + ", userAddressDetail="
 				+ userAddressDetail + ", userPostnum=" + userPostnum + "]";
 	}
-
+    
+    
 }

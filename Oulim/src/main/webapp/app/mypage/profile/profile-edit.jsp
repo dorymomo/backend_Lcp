@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
 
 <!doctype html>
 <html lang="ko">
@@ -13,7 +12,7 @@
   <!-- base css -->
   <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/core/reset.css" />
   <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/core/variable.css" />
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/core/typography.css" />
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/core/Typography.css" />
 
   <!-- component css -->
   <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/component/input.css" />
@@ -23,8 +22,13 @@
     	<link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/pages/main/header-login.css"/>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/pages/main/footer.css" />
 
+  <script>
+ const contextPath = "${pageContext.request.contextPath}";  
+</script>
 
-  <script defer src="${pageContext.request.contextPath}/asset/js/pages/mypage/profile/profile-edit.js"></script>
+  <script defer src="${pageContext.request.contextPath}/asset/js/pages/mypage/profile/profile-edit.js">
+  
+  </script>
 </head>
 
 <body>
@@ -179,13 +183,13 @@
             <div class="pw-text">
               
               <input type="password" class="c-input" name="new-password" placeholder="새 비밀번호 입력">
-              <button type="button" id="c-password-btn-toggle"><img src="/Oulim/asset/image/user/password-off.png" alt="eye" id="c-password-toggle-img" /></button>
+              <button type="button" id="c-password-btn-toggle"><img src="${pageContext.request.contextPath}/asset/image/user/password-off.png" alt="eye" id="c-password-toggle-img" /></button>
             </div>
 
             <h5>비밀번호 재확인</h5>
             <div class="pw-text">
               <input type="password" class="c-input" name="new-password-check" placeholder="비밀번호 확인">
-              <button type="button" id="c-password-btn-toggle-2"><img src="/Oulim/asset/image/user/password-off.png" alt="eye" id="c-password-toggle-2-img" /></button>
+              <button type="button" id="c-password-btn-toggle-2"><img src="${pageContext.request.contextPath}/asset/image/user/password-off.png" alt="eye" id="c-password-toggle-2-img" /></button>
             </div>
 
             <h5>주소</h5>

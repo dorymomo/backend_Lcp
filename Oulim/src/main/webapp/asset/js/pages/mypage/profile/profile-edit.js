@@ -89,19 +89,19 @@ const pwToggleIcon2 = document.getElementById("c-password-toggle-2-img");
 pwBtn.addEventListener("click", () => {
   if (newPassword.type === "password") {
     newPassword.type = "text";
-    pwToggleIcon.src = "/Oulim/asset/image/user/password-on.png";
+    pwToggleIcon.src = "/asset/image/user/password-on.png";
   } else {
     newPassword.type = "password";
-    pwToggleIcon.src = "/Oulim/asset/image/user/password-off.png";
+    pwToggleIcon.src = "/asset/image/user/password-off.png";
   }
 });
 
 pwBtn2.addEventListener("click", () => {
   if (passwordChk.type === "password") {
     passwordChk.type = "text";
-    pwToggleIcon2.src = "/Oulim/asset/image/user/password-on.png";
+    pwToggleIcon2.src = "/asset/image/user/password-on.png";
   } else {
     passwordChk.type = "password";
-    pwToggleIcon2.src = "/Oulim/asset/image/user/password-off.png";
+    pwToggleIcon2.src ="/asset/image/user/password-off.png";
   }
 });

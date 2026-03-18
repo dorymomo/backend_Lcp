@@ -134,6 +134,7 @@ nextBtn.addEventListener("click", function (e) {
     e.preventDefault();
     alert("입력값을 확인해주세요.");
   }
+  e.target.closest("form").submit();
 });
 
 // 첨부파일 작업

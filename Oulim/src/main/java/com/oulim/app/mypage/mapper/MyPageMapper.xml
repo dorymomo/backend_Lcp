@@ -200,12 +200,31 @@ ORDER BY LOG_NO DESC
 <select id="mypost" parameterType="int" resultType="MyPageJoinDTO">
 
 <![CDATA[
-SELECT tcp.post_No AS postNo, tcp.post_title AS postTitle, tcp.post_Date AS postDate, tpl.post_Like_No AS postLikeNo 
-FROM tbl_community_post tcp 
-LEFT JOIN tbl_post_like tpl 
-ON tcp.user_no = #{userNo}
+SELECT *
+FROM (
+    SELECT ROWNUM rnum, A.*
+    FROM (
+        SELECT
+            tcp.post_no AS postNo,
+            tcp.post_title AS postTitle,
+            tcp.post_date AS postDate,
+            tpl.post_like_no AS postLikeNo
+        FROM tbl_community_post tcp
+        LEFT JOIN tbl_post_like tpl
+            ON tcp.post_no = tpl.post_no
+        WHERE tcp.user_no = #{userNo}
+        ORDER BY tcp.post_no DESC
+    ) A
+)
+WHERE rnum BETWEEN #{startRow} AND #{endRow}
 ]]>
 
+</select>
+
+<select id="getMyPostTotal" parameterType="int" resultType="int">
+    SELECT COUNT(*)
+    FROM tbl_community_post
+    WHERE user_no = #{userNo}
 </select>
 
 

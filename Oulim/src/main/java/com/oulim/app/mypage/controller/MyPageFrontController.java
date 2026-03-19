@@ -86,6 +86,7 @@ public class MyPageFrontController extends HttpServlet {
 			break;
 			
 		case "/mypage/myPost.mp": // 나의 작성 글 조회
+			System.out.println("작성글 조회 페이지 요청");
 			result = new MyPageMyPostController().execute(request, response);
 			break;
 			

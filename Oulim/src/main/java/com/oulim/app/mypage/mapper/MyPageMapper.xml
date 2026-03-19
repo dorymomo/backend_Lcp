@@ -200,10 +200,10 @@ ORDER BY LOG_NO DESC
 <select id="mypost" parameterType="int" resultType="MyPageJoinDTO">
 
 <![CDATA[
-SELECT tcp.postNo, tcp.postTitle, tcp.postDate, tpl.postLikeNo 
+SELECT tcp.post_No AS postNo, tcp.post_title AS postTitle, tcp.post_Date AS postDate, tpl.post_Like_No AS postLikeNo 
 FROM tbl_community_post tcp 
-JOIN tbl_post_like tpl 
-ON tcp.userno = #{userNo}
+LEFT JOIN tbl_post_like tpl 
+ON tcp.user_no = #{userNo}
 ]]>
 
 </select>

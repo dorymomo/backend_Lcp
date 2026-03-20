@@ -1,6 +1,7 @@
 package com.oulim.app.volunteer.management.controller;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +23,7 @@ public class VolunManageDetailController implements Execute{
 			throws ServletException, IOException {
 		VolunteerMangementDAO volunteerMangementDAO = new VolunteerMangementDAO();
 		Result result = new Result();
-
+		
 		int volunActNo = Integer.parseInt(request.getParameter("volunActNo"));
 
 		String pageParam = request.getParameter("page");
@@ -30,6 +31,11 @@ public class VolunManageDetailController implements Execute{
 
 		if (pageParam != null && !pageParam.equals("")) {
 			page = Integer.parseInt(pageParam);
+		}
+		
+		String view = request.getParameter("view");
+		if (view == null || view.trim().equals("")) {
+			view = "detail";
 		}
 
 		int rowCount = 10;
@@ -46,14 +52,28 @@ public class VolunManageDetailController implements Execute{
 
 		VolunActivityDTO volunDetail = volunteerMangementDAO.selectVolManageDetail(volunActNo);
 		List<VolunApplyDTO> applyList = volunteerMangementDAO.applyVolSelectPage(pageMap);
-
+		List<VolunApplyDTO> applyCountList = volunteerMangementDAO.selectApplyCountByDate(volunActNo);
+		
+		//출석,결석 버튼 활성화
+		boolean canAttendance = false;
+		try {
+			LocalDate today = LocalDate.now();
+			LocalDate procEnd = LocalDate.parse(volunDetail.getVolunActProcEnd());
+			canAttendance = today.isAfter(procEnd); // 종료 다음날부터 가능
+		} catch (Exception e) {
+			canAttendance = false;
+		}
+		
+		request.setAttribute("applyCountList", applyCountList);
 		request.setAttribute("volunDetail", volunDetail);
 		request.setAttribute("applyList", applyList);
-
+		request.setAttribute("canAttendance", canAttendance);
+		
 		request.setAttribute("page", page);
 		request.setAttribute("rowCount", rowCount);
 		request.setAttribute("totalCount", totalCount);
 		request.setAttribute("lastPage", lastPage);
+		request.setAttribute("view", view);
 
 		result.setPath("/app/volunteer-management/volunteer-manage-detail.jsp");
 		result.setRedirect(false);

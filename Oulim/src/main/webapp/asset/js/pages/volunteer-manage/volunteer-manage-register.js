@@ -158,3 +158,47 @@ registerButton.addEventListener("click", (e) => {
 
 	form.submit();
 });
+// 주소 검색
+function sample4_execDaumPostcode() {
+    new kakao.Postcode({
+        oncomplete: function(data) {
+            var roadAddr = data.roadAddress;
+            var extraRoadAddr = '';
+
+            if (data.bname !== '' && /[동로가]$/.test(data.bname)) {
+                extraRoadAddr += data.bname;
+            }
+
+            if (data.buildingName !== '' && data.apartment === 'Y') {
+                extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+            }
+
+            if (extraRoadAddr !== '') {
+                extraRoadAddr = ' (' + extraRoadAddr + ')';
+            }
+
+            document.getElementById('volunActPostnum').value = data.zonecode;
+            document.getElementById('volunActAddress').value = roadAddr;
+
+            document.getElementById('sample4_jibunAddress').value = data.jibunAddress;
+            document.getElementById('sample4_extraAddress').value = extraRoadAddr;
+
+            var guideTextBox = document.getElementById('guide');
+
+            if (data.autoRoadAddress) {
+                var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
+                guideTextBox.innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
+                guideTextBox.style.display = 'block';
+            } else if (data.autoJibunAddress) {
+                var expJibunAddr = data.autoJibunAddress;
+                guideTextBox.innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
+                guideTextBox.style.display = 'block';
+            } else {
+                guideTextBox.innerHTML = '';
+                guideTextBox.style.display = 'none';
+            }
+
+            document.getElementById('volunActAddressDetail').focus();
+        }
+    }).open();
+}

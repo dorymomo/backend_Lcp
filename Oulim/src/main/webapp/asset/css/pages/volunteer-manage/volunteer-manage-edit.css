@@ -126,3 +126,15 @@
 .c-input.is-error{
   border: 1px solid red;
 }
+
+
+/*우편 폼 */
+.postcode-wrap {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+
+.postcode-wrap .c-input {
+	flex: 1;
+}

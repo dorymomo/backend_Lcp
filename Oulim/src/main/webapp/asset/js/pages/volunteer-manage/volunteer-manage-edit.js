@@ -233,3 +233,54 @@ form.addEventListener("submit", function (e) {
 cancelButton.addEventListener("click", function () {
 	history.back();
 });
+
+//우편 검색
+function sample4_execDaumPostcode() {
+		new kakao.Postcode({
+			oncomplete: function(data) {
+				let addr = '';
+				let extraAddr = '';
+
+				if (data.userSelectedType === 'R') {
+					addr = data.roadAddress;
+				} else {
+					addr = data.jibunAddress;
+				}
+
+				if (data.userSelectedType === 'R') {
+					if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+						extraAddr += data.bname;
+					}
+					if (data.buildingName !== '' && data.apartment === 'Y') {
+						extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+					}
+					if (extraAddr !== '') {
+						extraAddr = ' (' + extraAddr + ')';
+					}
+					document.getElementById("sample4_extraAddress").value = extraAddr;
+				} else {
+					document.getElementById("sample4_extraAddress").value = '';
+				}
+
+				document.getElementById('volunActPostnum').value = data.zonecode;
+				document.getElementById("volunActAddress").value = addr;
+				document.getElementById("sample4_jibunAddress").value = data.jibunAddress;
+
+				const guideTextBox = document.getElementById("guide");
+				if (data.autoRoadAddress) {
+					const expRoadAddr = data.autoRoadAddress + extraAddr;
+					guideTextBox.innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
+					guideTextBox.style.display = 'block';
+				} else if (data.autoJibunAddress) {
+					const expJibunAddr = data.autoJibunAddress;
+					guideTextBox.innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
+					guideTextBox.style.display = 'block';
+				} else {
+					guideTextBox.innerHTML = '';
+					guideTextBox.style.display = 'none';
+				}
+
+				document.getElementById("volunActAddressDetail").focus();
+			}
+		}).open();
+	}

@@ -34,8 +34,11 @@ public class MyPagePointController implements Execute {
         String tab = request.getParameter("tab");
         if (tab == null) tab = "plus"; // 기본은 적립 포인트
 
-        String tempPage = request.getParameter("page");
-        int page = (tempPage == null) ? 1 : Integer.parseInt(tempPage);
+        String plusTemp = request.getParameter("plusPage");
+        String minusTemp = request.getParameter("minusPage");
+
+        int plusPage = (plusTemp == null) ? 1 : Integer.parseInt(plusTemp);
+        int minusPage = (minusTemp == null) ? 1 : Integer.parseInt(minusTemp);
 
         int rowCount = 10;
 
@@ -44,7 +47,6 @@ public class MyPagePointController implements Execute {
         // 적립 포인트
         int plusTotal = dao.plusTotal(userNo);
         int plusLastPage = (int) Math.ceil(plusTotal / (double) rowCount);
-        int plusPage = "plus".equals(tab) ? page : 1;
 
         Map<String, Object> plusMap = new HashMap<>();
         plusMap.put("startRow", (plusPage - 1) * rowCount + 1);
@@ -55,13 +57,15 @@ public class MyPagePointController implements Execute {
         // 사용 포인트
         int minusTotal = dao.minusTotal(userNo);
         int minusLastPage = (int) Math.ceil(minusTotal / (double) rowCount);
-        int minusPage = "minus".equals(tab) ? page : 1;
 
         Map<String, Object> minusMap = new HashMap<>();
         minusMap.put("startRow", (minusPage - 1) * rowCount + 1);
         minusMap.put("endRow", minusPage * rowCount);
         minusMap.put("userNo", userNo);
         List<MyPageJoinDTO> minusPoint = dao.minusPoint(minusMap);
+
+        if (plusLastPage == 0) plusLastPage = 1;
+        if (minusLastPage == 0) minusLastPage = 1;
 
         // JSP 전달
         request.setAttribute("activeTab", tab);
@@ -71,6 +75,17 @@ public class MyPagePointController implements Execute {
         request.setAttribute("minusLastPage", minusLastPage);
         request.setAttribute("plusPoint", plusPoint);
         request.setAttribute("minusPoint", minusPoint);
+        
+        
+        request.setAttribute("postNo", request.getParameter("postNo"));
+
+        int total = tab.equals("plus") ? plusTotal : minusTotal;
+        
+        request.setAttribute("total", total);
+        
+        System.out.println("minusTotal = " + minusTotal);
+        System.out.println("minusLastPage = " + minusLastPage);
+        System.out.println("minusPage = " + minusPage);
 
         result.setPath("/app/mypage/point-history/point-history.jsp");
         result.setRedirect(false);

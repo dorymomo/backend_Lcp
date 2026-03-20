@@ -117,16 +117,16 @@
 
 					<div class="p-point-history--nav">
 						<nav>
-							<a href="?page=1&tab=plus" id="plus"
-								class="${activeTab=='plus'?'active':''}">적립 포인트</a> <a
-								href="?page=1&tab=minus" id="minus"
-								class="${activeTab=='minus'?'active':''}">사용 포인트</a>
+							<a href="?plusPage=1&minusPage=1&tab=plus" id="plus"
+								class="${activeTab eq 'plus' ? 'active' : ''}">적립 포인트</a> <a
+								href="?plusPage=1&minusPage=1&tab=minus" id="minus"
+								class="${activeTab eq 'minus' ? 'active' : ''}">사용 포인트</a>
 						</nav>
 						<hr>
 					</div>
 
 					<div id="a" class="p-point-history--earn-list"
-						style="${activeTab=='plus'?'display:block;':'display:none;'}">
+						style="${activeTab eq 'plus' ? 'display:block;' : 'display:none;'}">
 						<ul>
 							<c:forEach var="p" items="${plusPoint}">
 								<li>
@@ -141,7 +141,7 @@
 					</div>
 
 					<div id="b" class="p-point-history--use-list"
-						style="${activeTab=='minus'?'display:block;':'display:none;'}">
+						style="${activeTab eq 'minus' ? 'display:block;' : 'display:none;'}">
 						<ul>
 							<c:forEach var="m" items="${minusPoint}">
 								<li>
@@ -154,43 +154,44 @@
 							</c:forEach>
 						</ul>
 					</div>
-</div>
+
 					<div class="p-point-history--pagination">
 						<nav class="c-pagination">
 							<c:choose>
-								<c:when test="${activeTab=='plus'}">
+								<c:when test="${activeTab eq 'plus'}">
 									<c:if test="${plusPage > 1}">
 										<a class="c-pagination__link"
-											href="?page=${plusPage-1}&tab=plus">‹</a>
+											href="?plusPage=${plusPage-1}&minusPage=${minusPage}&tab=plus">‹</a>
 									</c:if>
 									<c:forEach var="i" begin="1" end="${plusLastPage}">
-										<a class="c-pagination__link ${i==plusPage?'is-active':''}"
-											href="?page=${i}&tab=plus">${i}</a>
+										<a class="c-pagination__link ${i eq plusPage?'is-active':''}"
+											href="?plusPage=${i}&minusPage=${minusPage}&tab=plus">${i}</a>
 									</c:forEach>
 									<c:if test="${plusPage < plusLastPage}">
 										<a class="c-pagination__link"
-											href="?page=${plusPage+1}&tab=plus">›</a>
+											href="?plusPage=${plusPage+1}&minusPage=${minusPage}&tab=plus">›</a>
 									</c:if>
+									
 								</c:when>
-								<c:otherwise>
+								<c:when test="${activeTab eq 'minus'}">
 									<c:if test="${minusPage > 1}">
 										<a class="c-pagination__link"
-											href="?page=${minusPage-1}&tab=minus">‹</a>
+											href="?plusPage=${plusPage}&minusPage=${minusPage-1}&tab=minus">‹</a>
 									</c:if>
 									<c:forEach var="i" begin="1" end="${minusLastPage}">
-										<a class="c-pagination__link ${i==minusPage?'is-active':''}"
-											href="?page=${i}&tab=minus">${i}</a>
+										<a class="c-pagination__link ${i eq minusPage ? 'is-active' : ''}"
+											href="?plusPage=${plusPage}&minusPage=${i}&tab=minus">${i}</a>
 									</c:forEach>
 									<c:if test="${minusPage < minusLastPage}">
 										<a class="c-pagination__link"
-											href="?page=${minusPage+1}&tab=minus">›</a>
+											href="?plusPage=${plusPage}&minusPage=${minusPage+1}&tab=minus">›</a>
 									</c:if>
-								</c:otherwise>
+								</c:when>
 							</c:choose>
 						</nav>
 					</div>
 
-
+</div>
 				
 
 			</div>

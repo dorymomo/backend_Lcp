@@ -106,10 +106,61 @@
     </where>
 
     <!-- 최신 등록 순 정렬 -->
-    ORDER BY Volun_Act_No DESC
+ORDER BY Volun_Act_No DESC
+OFFSET #{offset} ROWS FETCH NEXT #{size} ROWS ONLY
 
 </select>
-<!-- 
+<select id="selectVolunteerCount"
+        parameterType="VolunActivityDTO"
+        resultType="int">
+
+    SELECT COUNT(*)
+    FROM TBL_VOLUN_ACTIVITY
+
+    <where>
+
+        <![CDATA[
+        Volun_Act_Recru_End >= SYSDATE
+        ]]>
+
+        <if test="volunActActType != null">
+            AND Volun_Act_Act_Type = #{volunActActType}
+        </if>
+
+        <if test="volunActAgeGroup != null">
+            AND Volun_Act_Age_Group = #{volunActAgeGroup}
+        </if>
+
+        <if test="recruitStatus == '1'">
+            <![CDATA[
+            AND SYSDATE BETWEEN Volun_Act_Recru_Begin AND Volun_Act_Recru_End
+            ]]>
+        </if>
+
+        <if test="recruitStatus == '2'">
+            <![CDATA[
+            AND SYSDATE < Volun_Act_Recru_Begin
+            ]]>
+        </if>
+
+        <if test="recruitStatus == '3'">
+            <![CDATA[
+            AND SYSDATE > Volun_Act_Recru_End
+            ]]>
+        </if>
+
+        <if test="organization != null and organization != ''">
+            AND Volun_Act_Org_Name LIKE '%' || #{organization} || '%'
+        </if>
+
+        <if test="searchType == 'title' and keyword != null and keyword != ''">
+            AND Volun_Act_Title LIKE '%' || #{keyword} || '%'
+        </if>
+
+    </where>
+
+</select>
+
 <select id="selectVolunDetail" parameterType="int"
         resultType="VolunActivityDTO">
 
@@ -138,5 +189,4 @@
     WHERE V.Volun_Act_No = #{volunActNo}
 
 </select>
- -->
 </mapper>

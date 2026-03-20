@@ -44,6 +44,37 @@ public class VolunActivityDTO {
 	private String keyword;         // 검색어
 	private String searchType;		// 검색 조건
 	private String VolunActOrginName;// 기관 명
+	private String Organization;	// 주체단체
+	private int Page;
+	private int Size;
+	private int Offset;
+	
+
+	public int getPage() {
+		return Page;
+	}
+	public void setPage(int page) {
+		Page = page;
+	}
+	public int getSize() {
+		return Size;
+	}
+	public void setSize(int size) {
+		Size = size;
+	}
+	public int getOffset() {
+		return Offset;
+	}
+	public void setOffset(int offset) {
+		Offset = offset;
+	}
+	public String getOrganization() {
+		return Organization;
+	}
+	public void setOrganization(String organization) {
+		this.Organization = organization;
+	}
+	
 	public int getVolunActNo() {
 		return volunActNo;
 	}

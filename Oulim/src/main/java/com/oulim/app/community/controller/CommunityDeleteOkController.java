@@ -27,6 +27,12 @@ public class CommunityDeleteOkController implements Execute{
 		
 		int postNo = Integer.parseInt(request.getParameter("postNo"));
 		
+		if(request.getSession().getAttribute("userNo") == null) {
+			result.setPath(request.getContextPath() + "/app/user/login/login.jsp");
+			result.setRedirect(true);
+			return result;
+		}
+		
 		// 업로드 경로
 		final String UPLOAD_PATH = request.getSession().getServletContext().getRealPath("/") + "upload/";
 		

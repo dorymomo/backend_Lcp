@@ -22,9 +22,9 @@ public class VolunManageUpdateController implements Execute {
 		int volunActNo = Integer.parseInt(request.getParameter("volunActNo"));
 
 		VolunActivityDTO volunActivityDTO = volunteerMangementDAO.selectVolManageUpdate(volunActNo);
-
+		
 		request.setAttribute("volunActivity", volunActivityDTO);
-
+		
 		result.setPath("/app/volunteer-management/volunteer-manage-edit.jsp");
 		result.setRedirect(false);
 

@@ -9,14 +9,14 @@ public class CurrencyDTO {
 //			  CONSTRAINT FK_CURRENCY_USER FOREIGN KEY (User_No) REFERENCES TBL_USER(User_No) ON DELETE CASCADE
 //			);
 	
-	private int currencyID;
+	private int currencyId;
 	private int userNo;
 	private int totalAmount;
 	public int getCurrencyID() {
-		return currencyID;
+		return currencyId;
 	}
-	public void setCurrencyID(int currencyID) {
-		this.currencyID = currencyID;
+	public void setCurrencyID(int currencyId) {
+		this.currencyId = currencyId;
 	}
 	public int getUserNo() {
 		return userNo;
@@ -30,10 +30,8 @@ public class CurrencyDTO {
 	public void setTotalAmount(int totalAmount) {
 		this.totalAmount = totalAmount;
 	}
-
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return "CurrencyDTO [currencyID=" + currencyId + ", userNo=" + userNo + ", totalAmount=" + totalAmount + "]";
 	}
 }

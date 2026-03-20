@@ -31,6 +31,12 @@ public class CommunityUpdateOkController implements Execute {
 		CommunityFileDAO commuFileDAO = new CommunityFileDAO();
 		Result result = new Result();
 		
+		if(request.getSession().getAttribute("userNo") == null) {
+			result.setPath(request.getContextPath() + "/app/user/login/login.jsp");
+			result.setRedirect(true);
+			return result;
+		}
+		
 		final String UPLOAD_PATH = request.getSession().getServletContext().getRealPath("/") + "upload/";
 		final int FILE_SIZE = 1024 * 1024 * 5;
 		

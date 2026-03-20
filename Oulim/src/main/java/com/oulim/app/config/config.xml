@@ -22,6 +22,7 @@
 		<typeAlias type="com.oulim.app.user.dto.CurrencyDTO" alias="CurrencyDTO"></typeAlias>
 		<typeAlias type="com.oulim.app.user.dto.OrganCertDTO" alias="OrganCertDTO"></typeAlias>
 		<typeAlias type="com.oulim.app.user.dto.OrganDTO" alias="OrganDTO"></typeAlias>
+		<typeAlias type="com.oulim.app.user.dto.LogPointDTO" alias="LogPointDTO"></typeAlias>
 		
 		<!-- kkomi DTO Alias -->
 		<typeAlias type="com.oulim.app.kkomi.dto.KkomiDTO" alias="KkomiDTO"></typeAlias>
@@ -45,7 +46,7 @@
 		
 		<!-- MyPage DTO  -->	
 		<typeAlias type="com.oulim.app.mypage.dto.MyPageJoinDTO" alias="MyPageJoinDTO"></typeAlias>
-		<typeAlias type="com.oulim.app.mypage.dto.LogPointDTO" alias="LogPointDTO"></typeAlias>
+		
 		<!-- Admin DTO -->
 		<typeAlias type="com.oulim.app.admin.dto.AdminDTO" alias="AdminDTO"></typeAlias>
 		<typeAlias type="com.oulim.app.admin.dto.AdminSearchDTO" alias="AdminSearchDTO"></typeAlias>

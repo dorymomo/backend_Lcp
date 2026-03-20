@@ -1,4 +1,4 @@
-package com.oulim.app.mypage.dto;
+package com.oulim.app.user.dto;
 
 public class LogPointDTO {
 //	  Log_No NUMBER,

@@ -2,11 +2,12 @@ package com.oulim.app.kkomi.dto;
 
 public class KkomiJoinDTO {
 	private int userNo;
-	private int kkomiId;
+	private int kkomiNo;
 	private int kkomiLev;
 	private int kkomiExp;
 	private int point;
 	private int myRanking;
+	private int needExp; // db에 저장되지 않는 값
 	
 	public int getUserNo() {
 		return userNo;
@@ -14,11 +15,11 @@ public class KkomiJoinDTO {
 	public void setUserNo(int userNo) {
 		this.userNo = userNo;
 	}
-	public int getKkomiId() {
-		return kkomiId;
+	public int getkkomiNo() {
+		return kkomiNo;
 	}
-	public void setKkomiId(int kkomiId) {
-		this.kkomiId = kkomiId;
+	public void setkkomiNo(int kkomiNo) {
+		this.kkomiNo = kkomiNo;
 	}
 	public int getKkomiLev() {
 		return kkomiLev;
@@ -44,10 +45,18 @@ public class KkomiJoinDTO {
 	public void setMyRanking(int myRanking) {
 		this.myRanking = myRanking;
 	}
-	
+		
+	public int getNeedExp() {
+		return needExp;
+	}
+	public void setNeedExp(int needExp) {
+		this.needExp = needExp;
+	}
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
-	}	
+		return "KkomiJoinDTO [userNo=" + userNo + ", kkomiNo=" + kkomiNo + ", kkomiLev=" + kkomiLev + ", kkomiExp="
+				+ kkomiExp + ", point=" + point + ", myRanking=" + myRanking + ", needExp=" + needExp + "]";
+	}
+
+	
 }

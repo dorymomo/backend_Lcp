@@ -17,6 +17,14 @@ public class CommunityCommentPostOkController implements Execute {
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		CommunityDAO commuDAO = new CommunityDAO();
+		Result result = new Result();
+
+		if(request.getSession().getAttribute("userNo") == null) {
+			result.setPath(request.getContextPath() + "/app/user/login/login.jsp");
+			result.setRedirect(true);
+			return result;
+		}
+		
 		Integer userNo = (Integer) request.getSession().getAttribute("userNo");
 		if(userNo == null) {
 			response.setContentType("application/json; charset=UTF-8");
@@ -36,7 +44,6 @@ public class CommunityCommentPostOkController implements Execute {
 		
 		commuDAO.insertPostComment(commentDTO);
 		
-		Result result = new Result();
 		result.setPath(null);
 		result.setRedirect(false);
 		

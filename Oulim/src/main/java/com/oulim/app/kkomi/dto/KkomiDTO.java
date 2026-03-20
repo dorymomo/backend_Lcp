@@ -49,7 +49,8 @@ public class KkomiDTO {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return "KkomiDTO [userNo=" + userNo + ", kkomiNo=" + kkomiNo + ", kkomiLev=" + kkomiLev + ", kkomiExp="
+				+ kkomiExp + "]";
 	}
+
 }

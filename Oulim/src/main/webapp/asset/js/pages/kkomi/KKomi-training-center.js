@@ -1,11 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+	const USER_TYPE = {
+		ADMIN: 0,
+		USER: 1,
+		COMPANY: 2
+	};
   const mockData = {
-    level: 4,
-    rank: 7000,
-    absorbPoint: 5000,
-    remainPoint: 500,
-    progress: 60
+    level: kkomiLev,
+    rank: ranking,
+    absorbPoint: currExp,
+    remainPoint: point,
+    progress: (currExp === 0 || needExp === 0) ? 0 : (currExp / needExp * 100)
   }
 
   const character = document.querySelector("#komiCharacter")
@@ -40,12 +45,43 @@ document.addEventListener("DOMContentLoaded", () => {
     remain.textContent = mockData.remainPoint
   }
 
-  const feedBtn = document.querySelector(".js-feed");
+  const feedBtn = document.querySelector("#feedBtn");
   const missionBtn = document.querySelector(".js-mission");
   const storageBtn = document.querySelector(".js-storage");
+  const rankingBtn = document.getElementById("rankingBtn");
+  
+  rankingBtn.addEventListener("click" ,() => {
+	location.href =`${contextPath}/kkomi/ranking.kko`;
+  });
 
-  feedBtn?.addEventListener("click", () => {
-    alert("도력을 흡수합니다!")
+  feedBtn?.addEventListener("click", async () => {    
+		if (!isLogin) {
+			alert("로그인이 필요합니다.")
+
+			location.href = `${contextPath}/user/login.usr`
+			return;
+		}
+
+				if (userType !== USER_TYPE.USER) {
+			alert("기업 회원 및 관리자는 사용할 수 없습니다.");
+			return;
+		}
+		
+		try{
+			const res = await fetch(`${contextPath}/kkomi/feed.kko`,{
+				method : "POST",
+				headers : { "X-Requested-With": "fetch" }
+			});
+			const data = await res.json();
+			if(data.result === 100){
+				alert(data.data);
+				location.reload();				
+			}else{
+				alert(data.data);				
+			}
+		}catch(err){
+			alert("오류가 발생했습니다.");
+		}
   })
 
   missionBtn?.addEventListener("click", () => {

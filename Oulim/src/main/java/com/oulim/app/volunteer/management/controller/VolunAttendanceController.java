@@ -19,13 +19,23 @@ public class VolunAttendanceController implements Execute {
 		Result result = new Result();
 		PointJoinDTO pointJoinDTO = new PointJoinDTO();
 		VolunManageServicePoint volunManageServicePoint = new VolunManageServicePoint();
-		
+
 		String[] userNos = request.getParameterValues("attendanceUser");
 		int changeAmount = Integer.parseInt(request.getParameter("changeAmount"));
 		int volunActNo = Integer.parseInt(request.getParameter("volunActNo"));
 		int attendanceStatus = Integer.parseInt(request.getParameter("attendanceStatus"));
-		
-		
+
+		String pageParam = request.getParameter("page");
+		int page = 1;
+		if (pageParam != null && !pageParam.trim().equals("")) {
+			page = Integer.parseInt(pageParam);
+		}
+
+		String view = request.getParameter("view");
+		if (view == null || view.trim().equals("")) {
+			view = "detail";
+		}
+
 		pointJoinDTO.setChangeAmount(changeAmount);
 
 		if (userNos != null && userNos.length > 0) {
@@ -33,7 +43,7 @@ public class VolunAttendanceController implements Execute {
 		}
 
 		result.setRedirect(true);
-		result.setPath(request.getContextPath() + "/volunteer-manage/detail.vm?volunActNo=" + volunActNo);
+		result.setPath(request.getContextPath() + "/volunteer-manage/detail.vm?volunActNo=" + volunActNo + "&page=" + page + "&view=" + view);
 
 		return result;
 	}

@@ -27,7 +27,11 @@ public class CommunityWriteOKController implements Execute{
 		CommunityDAO commuDAO = new CommunityDAO();
 		CommunityFileDAO commuFileDAO = new CommunityFileDAO();
 		Result result = new Result();
-		
+		if(request.getSession().getAttribute("userNo") == null) {
+			result.setPath(request.getContextPath() + "/app/user/login/login.jsp");
+			result.setRedirect(true);
+			return result;
+		}
 		// 로그인 회원 정보
 		Integer userNo = (Integer)request.getSession().getAttribute("userNo");
 		String userNickname = (String)request.getSession().getAttribute("userNickname");		

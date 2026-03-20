@@ -25,6 +25,11 @@ public class VolunMangetListController implements Execute {
 		VolunActivityDTO volunActivityDTO = new VolunActivityDTO();
 		Result result = new Result();
 
+//		if (session.getAttribute("userNo") == null || session.getAttribute("organNo") == null) {
+//		    result.setPath(request.getContextPath() + "/app/user/login/login.jsp");
+//		    result.setRedirect(true);
+//		    return result;
+//		}
 		// Integer organNo = (Integer) request.getSession().getAttribute("organNo");
 		Integer organNo = 1; // 테스트용
 

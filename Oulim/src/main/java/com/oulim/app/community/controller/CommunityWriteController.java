@@ -19,6 +19,11 @@ public class CommunityWriteController implements Execute{
 		System.out.println("게시글 작성 페이지 컨트롤러 이동 완료");
 		UserDAO userDAO = new UserDAO();
 		Result result = new Result();
+		if(request.getSession().getAttribute("userNo") == null) {
+			result.setPath(request.getContextPath() + "/app/user/login/login.jsp");
+			result.setRedirect(true);
+			return result;
+		}
 		HttpSession session = request.getSession();
 		Integer userNo = (Integer)session.getAttribute("userNo");
 		String userNickname = (String)session.getAttribute("userNickname");

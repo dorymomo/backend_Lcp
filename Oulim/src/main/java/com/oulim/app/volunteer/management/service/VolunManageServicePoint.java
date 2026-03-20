@@ -26,6 +26,8 @@ public class VolunManageServicePoint  {
 
 				volunteerMangementDAO.updateCurrency(pointJoinDTO);
 				volunteerMangementDAO.insertPointLog(pointJoinDTO);
+				volunteerMangementDAO.insertVolunHistory(volunApplyDTO);
+				System.out.println(volunApplyDTO);
 			}
 		}
 		

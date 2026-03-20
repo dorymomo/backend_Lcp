@@ -206,18 +206,40 @@
 
 
 	<!-- 보유 재화 조회 -->
-	<select id="getCurrency" parameterType="int">
+	<select id="getCurrency" parameterType="int" resultType="CurrencyDTO">
 		SELECT currency_id, user_no, total_amount FROM TBL_CURRENCY where user_no = #{userNo}
+	</select>
+	
+	<!-- 특정 보유 재화 조회 -->
+	<select id="getCurrencyOne" parameterType="Map" resultType="CurrencyDTO">
+		SELECT currency_id, user_no, total_amount FROM TBL_CURRENCY WHERE USER_NO = #{userNo} AND CURRENCY_ID = #{currencyId}
 	</select>
 	
 	<!-- 보유 재화 변경 -->
 	<update id="upsertCurrency" parameterType="CurrencyDTO">
 	MERGE INTO TBL_CURRENCY tc USING(
-		SELECT #{userNo} AS User_No, #{currencyId} as currency_id FROM DUAL) src on tc.user_no = src.user_no and tc.currency_id = src.currency_id 
+		SELECT #{userNo} AS User_No, #{currencyId} as currency_id FROM DUAL) src on (tc.user_no = src.user_no and tc.currency_id = src.currency_id) 
 		WHEN NOT MATCHED THEN
 			INSERT (currency_id, user_no, total_amount)
 			VALUES (#{currencyId}, #{userNo}, #{totalAmount})
 		WHEN MATCHED THEN
 			Update set total_amount = #{totalAmount} 
 	</update>
+	
+	
+	<!-- 유저 타입별 유저수 조회 -->
+	<select id="getUserCount" parameterType="int" resultType="int">
+		SELECT COUNT(user_no) FROM TBL_USER
+		<where>
+			<if test = "_parameter != 0">
+				user_type = #{_parameter}
+			</if>
+		</where>
+	</select>
+	
+	<!--  포인트 이력 삽입 -->
+	<insert id="pointLogInsert" parameterType="LogPointDTO">
+		INSERT INTO TBL_LOG_POINT(Log_No, User_No, Currency_ID, Change_Amount, Log_Reason, Log_Date)
+		VALUES (SEQ_TBL_LOG_POINT.nextval, #{userNo}, #{currencyId}, #{changeAmount}, #{logReason}, sysdate)
+	</insert>
 </mapper>

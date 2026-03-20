@@ -95,12 +95,14 @@ public class MyPageJoinDAO {
 	
 //	6. 작성 글 조회
 	
+	// 리스트 조회 (페이징)
 	public List<MyPageJoinDTO> viewMyPost(Map<String, Object> pageMap) {
-	    return sqlSession.selectList("mypage.viewMyPost", pageMap);
+	    return sqlSession.selectList("mypage.mypost", pageMap);
 	}
-	
+
+	// 전체 개수
 	public int getMyPostTotal(int userNo) {
-		return sqlSession.selectOne("mypage.getMyPostTotal", userNo);
+	    return sqlSession.selectOne("mypage.getMyPostTotal", userNo);
 	}
 	
 //	7. 회원탈퇴

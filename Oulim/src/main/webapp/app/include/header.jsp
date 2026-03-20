@@ -33,7 +33,7 @@
 						
 						<c:if test="${sessionScope.userType== 1}">
 							<div>
-								<a href="">꼬미수련소</a>
+								<a href="${pageContext.request.contextPath}/kkomi/info.kko">꼬미수련소</a>
 							</div>
 						</c:if>
 

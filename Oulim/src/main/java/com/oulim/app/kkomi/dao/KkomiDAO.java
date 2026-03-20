@@ -13,13 +13,22 @@ import com.oulim.app.kkomi.dto.RankingJoinDTO;
 public class KkomiDAO {
 	SqlSession sqlSession;
 	
-	public KkomiDAO(boolean isAuto) {
-		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(isAuto);
+	public KkomiDAO() {
+		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
+	}
+	
+	public KkomiDAO(SqlSession session) {
+		this.sqlSession = session;
 	}
 	
 	public KkomiJoinDTO getKkomiInfo(int userNo) {
 		System.out.println("꼬미 정보 조회 - getKkomiInfo");		
 		return sqlSession.selectOne("kkomi.selectKkomiJoin",userNo);
+	}
+	
+	public KkomiDTO getOnlyKkomi(int userNo) {
+		System.out.println("나의 꼬미 정보 조회 - getMyKkomi");
+		return sqlSession.selectOne("kkomi.selectKkomi", userNo);
 	}
 	
 	public boolean upsertKkomi(KkomiDTO kkomi) {
@@ -31,6 +40,16 @@ public class KkomiDAO {
 	public List<RankingJoinDTO> getRankingInfo(int userNo) {
 		System.out.println("랭킹 상위권 및 내 랭킹 조회 - getRankingInfo");
 		return sqlSession.selectList("kkomi.selectTopRanking", userNo);
+	}
+	
+	public RankingJoinDTO getMyRankingJoinInfo(int userNo) {
+		System.out.println("조인된 나의 랭킹 정보 조회 - getMyRankingJoinInfo");
+		return sqlSession.selectOne("kkomi.selectMyJoinRanking", userNo);
+	}
+	
+	public RankingDTO getMyRanking(int userNo) {
+		System.out.println("내 랭킹 정보 조회 - getMyRanking");
+		return sqlSession.selectOne("kkomi.selectMyRanking", userNo);
 	}
 	
 	public boolean upsertRanking(RankingDTO ranking) {

@@ -27,10 +27,18 @@ public class MyPageMyPostController implements Execute {
 
 	    Integer userNo = (Integer) session.getAttribute("userNo");
 
-	    // 🔥 페이지 처리
+
+	    // 로그인 체크
+	    if (userNo == null) {
+	        result.setPath(request.getContextPath() + "/app/user/login/login.jsp");
+	        result.setRedirect(true);
+	        return result;
+	    }
+
 	    String temp = request.getParameter("page");
-	    int page = (temp == null) ? 1 : Integer.parseInt(temp);
+	    int page = (temp == null) ? 1 : Integer.valueOf(temp);
 	    if (page < 1) page = 1;
+
 
 	    int rowCount = 10;
 	    int pageCount = 10;
@@ -43,12 +51,8 @@ public class MyPageMyPostController implements Execute {
 	    pageMap.put("endRow", endRow);
 	    pageMap.put("userNo", userNo);
 
-	    System.out.println("작성글 조회 쿼리 실행 전");
 
 	    List<MyPageJoinDTO> mypost = mypageDAO.viewMyPost(pageMap);
-
-	    System.out.println("작성글 조회 쿼리 실행");
-
 	    request.setAttribute("mypost", mypost);
 
 	    int total = mypageDAO.getMyPostTotal(userNo);
@@ -68,8 +72,7 @@ public class MyPageMyPostController implements Execute {
 	    request.setAttribute("prev", prev);
 	    request.setAttribute("next", next);
 
-	    System.out.println("pageMap : " + pageMap);
-	    System.out.println("mypost : " + mypost);
+	    request.setAttribute("total", total);
 
 	    result.setPath("/app/mypage/community-history/myposts.jsp");
 	    result.setRedirect(false);

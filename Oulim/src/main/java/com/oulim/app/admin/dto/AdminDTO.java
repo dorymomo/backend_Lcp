@@ -11,7 +11,7 @@ public class AdminDTO {
 //			CONSTRAINT uk_email UNIQUE(Admin_Email)
 //		);
 	
-	private int adminNum;
+	private int adminNo;
 	private String adminId;
 	private String adminPw;
 	private String adminEmail;
@@ -19,11 +19,11 @@ public class AdminDTO {
 	
 	
 
-	public int getAdminNum() {
-		return adminNum;
+	public int getAdminNo() {
+		return adminNo;
 	}
-	public void setAdminNum(int adminNum) {
-		this.adminNum = adminNum;
+	public void setAdminNo(int adminNo) {
+		this.adminNo = adminNo;
 	}
 	public String getAdminId() {
 		return adminId;
@@ -34,6 +34,7 @@ public class AdminDTO {
 	public String getAdminPw() {
 		return adminPw;
 	}
+
 	public void setAdminPw(String adminPw) {
 		this.adminPw = adminPw;
 	}
@@ -44,12 +45,11 @@ public class AdminDTO {
 		this.adminEmail = adminEmail;
 	}
 	
-	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return "AdminDTO [adminNo=" + adminNo + ", adminId=" + adminId + ", adminPw=" + adminPw + ", adminEmail="
+				+ adminEmail + "]";
 	}
 
-	
+
 }

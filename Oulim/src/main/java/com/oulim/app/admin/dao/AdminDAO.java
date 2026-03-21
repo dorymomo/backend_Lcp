@@ -9,10 +9,12 @@ public class AdminDAO {
     SqlSession sqlSession;
     
     public AdminDAO() {
-        sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(false);
+        sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
     }
-//mybatis가 맵퍼로 보냄
-    public AdminDTO login(AdminDTO adminDTO) {
+    
+    //mybatis가 맵퍼로 보냄
+    public int login(AdminDTO adminDTO) {
+    	System.out.println("AdminDAO의 로그인 메소드 호출");
         return sqlSession.selectOne("admin.login", adminDTO );
     }
 }

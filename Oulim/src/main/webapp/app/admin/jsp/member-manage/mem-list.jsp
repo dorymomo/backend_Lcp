@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/component/card.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/component/DetailCard.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/component/badge.css" />
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/app/admin/css/mem-list/mem-list.css" />
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/app/admin/css/member-manage/mem-list.css" />
 
 </head>
 
@@ -26,21 +26,23 @@
 
   <main class="l-main">
     <!-- 사이드바 -->
+      <!-- 사이드바 -->
     <aside>
       <!-- 관리자 영역 -->
       <div class="adminnow">
         <img src="" width="40" height="40" />
-
+		<form action ="${pageContext.request.contextPath}/admin/logout.adm" >
         <button class="c-button c-button--primary c-button--md">
           로그아웃
         </button>
+        </form>
       </div>
 
       <!-- 사이드바 메뉴 -->
       <nav class="sidebar-menu">
         <ul>
           <li class="menu-item">
-            <a href="${pageContext.request.contextPath}/app/admin/jsp/dashboard/dashboard.jsp">통계</a>
+            <a href="${pageContext.request.contextPath}/admin/dashboard.adm">통계</a>
           </li>
 
           <!-- 회원관리 -->
@@ -48,19 +50,19 @@
             <a href="#" class="menu-title"> 회원관리 </a>
 
             <ul class="submenu">
-              <li><a href="${pageContext.request.contextPath}/app/admin/jsp/member-manage/company-certification.jsp">기업회원</a></li>
-              <li><a href="${pageContext.request.contextPath}/app/admin/jsp/member-manage/mem-list.jsp">회원조회</a></li>
+              <li><a href="${pageContext.request.contextPath}/admin/companycertification.adm">기업회원</a></li>
+              <li><a href="${pageContext.request.contextPath}/admin/memlist.adm">회원조회</a></li>
             </ul>
           </li>
 
           <!-- 봉사활동관리 -->
           <li class="menu-item dropdown">
-            <a href="${pageContext.request.contextPath}/app/admin/jsp/volunteer-manage/volun-list.jsp" class="menu-title"> 봉사활동관리 </a>
+            <a href="${pageContext.request.contextPath}/admin/volunlist.adm" class="menu-title"> 봉사활동관리 </a>
           </li>
 
           <!-- 게시판관리 -->
           <li class="menu-item dropdown">
-            <a href="${pageContext.request.contextPath}/app/admin/jsp/community-manage/post-list.jsp" class="menu-title"> 게시판관리 </a>
+            <a href="${pageContext.request.contextPath}/admin/postlist.adm" class="menu-title"> 게시판관리 </a>
           </li>
         </ul>
       </nav>
@@ -75,12 +77,11 @@
         </div>
         <div id="content-area">
           <select class="search-item">
-            <option>유저번호</option>
-            <option>아이디</option>
-            <option>닉네임</option>
-            <option>회원종류</option>
-            <option>가입일</option>
-            <option>이름</option>
+			<option value="userNo">유저번호</option>
+			<option value="userId">아이디</option>
+			<option value="userNickname">닉네임</option>
+			<option value="userType">회원종류</option>
+			<option value="userName">이름</option>
           </select>
           <input type="text" class="c-input" placeholder="검색 조건">
           <button class="c-button c-button--primary c-button--md">조회</button>
@@ -93,7 +94,6 @@
             <span class="c-list__col">아이디</span>
             <span class="c-list__col">닉네임</span>
             <span class="c-list__col">회원종류</span>
-            <span class="c-list__col">가입일</span>
             <span class="c-list__col">이름</span>
           </div>
           <!-- body -->
@@ -106,16 +106,13 @@
                 아무개
               </span>
               <span class="c-list__col memdetail">
-                제목입니다
+                치카치카
               </span>
               <span class="c-list__col memdetail">
-                2023-01-15
+                일반
               </span>
               <span class="c-list__col memdetail">
-                11
-              </span>
-              <span class="c-list__col memdetail">
-                1000
+                말순
               </span>
             </div>
             <div class="c-list__row">

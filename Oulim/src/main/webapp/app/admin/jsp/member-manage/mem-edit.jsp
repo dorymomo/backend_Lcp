@@ -17,28 +17,30 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/component/card.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/component/DetailCard.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/component/badge.css" />
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/app/admin/css/mem-edit/mem-edit.css" />
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/app/admin/css/member-manage/mem-edit.css" />
   </head>
 
   <body>
 
     <main class="l-main">
       <!-- 사이드바 -->
+      <!-- 사이드바 -->
     <aside>
       <!-- 관리자 영역 -->
       <div class="adminnow">
         <img src="" width="40" height="40" />
-
+		<form action ="${pageContext.request.contextPath}/admin/logout.adm" >
         <button class="c-button c-button--primary c-button--md">
           로그아웃
         </button>
+        </form>
       </div>
 
       <!-- 사이드바 메뉴 -->
       <nav class="sidebar-menu">
         <ul>
           <li class="menu-item">
-            <a href="${pageContext.request.contextPath}/app/admin/jsp/dashboard/dashboard.jsp">통계</a>
+            <a href="${pageContext.request.contextPath}/admin/dashboard.adm">통계</a>
           </li>
 
           <!-- 회원관리 -->
@@ -46,19 +48,19 @@
             <a href="#" class="menu-title"> 회원관리 </a>
 
             <ul class="submenu">
-              <li><a href="${pageContext.request.contextPath}/app/admin/jsp/member-manage/company-certification.jsp">기업회원</a></li>
-              <li><a href="${pageContext.request.contextPath}/app/admin/jsp/member-manage/mem-list.jsp">회원조회</a></li>
+              <li><a href="${pageContext.request.contextPath}/admin/companycertification.adm">기업회원</a></li>
+              <li><a href="${pageContext.request.contextPath}/admin/memlist.adm">회원조회</a></li>
             </ul>
           </li>
 
           <!-- 봉사활동관리 -->
           <li class="menu-item dropdown">
-            <a href="${pageContext.request.contextPath}/app/admin/jsp/volunteer-manage/volun-list.jsp" class="menu-title"> 봉사활동관리 </a>
+            <a href="${pageContext.request.contextPath}/admin/volunlist.adm" class="menu-title"> 봉사활동관리 </a>
           </li>
 
           <!-- 게시판관리 -->
           <li class="menu-item dropdown">
-            <a href="${pageContext.request.contextPath}/app/admin/jsp/community-manage/post-list.jsp" class="menu-title"> 게시판관리 </a>
+            <a href="${pageContext.request.contextPath}/admin/postlist.adm" class="menu-title"> 게시판관리 </a>
           </li>
         </ul>
       </nav>

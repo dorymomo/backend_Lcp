@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.oulim.app.common.controller.Execute;
 import com.oulim.app.common.controller.Result;
 
-public class AdminLoginController implements Execute {
+public class AdminMemListController implements Execute{
 
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
@@ -18,10 +18,11 @@ public class AdminLoginController implements Execute {
 		
 		Result result = new Result();
 		
-		result.setPath("/app/admin/jsp/login.jsp");
+		result.setPath("/app/admin/jsp/member-manage/mem-list.jsp");
 		result.setRedirect(true);
 		
 		return result;
+		
 	}
-
+	
 }

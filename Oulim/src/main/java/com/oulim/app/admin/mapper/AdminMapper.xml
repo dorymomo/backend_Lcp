@@ -5,8 +5,8 @@
 <mapper namespace="admin"> 
 <select id="login" 
 parameterType="AdminDTO"
-resultType="AdminDTO">
-    SELECT *
+resultType="int">
+    SELECT admin_no
     FROM tbl_admin_account
     WHERE admin_id = #{adminId}
       AND admin_pw = #{adminPw}

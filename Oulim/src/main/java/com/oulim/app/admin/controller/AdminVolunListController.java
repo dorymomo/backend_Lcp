@@ -9,16 +9,15 @@ import javax.servlet.http.HttpServletResponse;
 import com.oulim.app.common.controller.Execute;
 import com.oulim.app.common.controller.Result;
 
-public class AdminLoginController implements Execute {
+public class AdminVolunListController implements Execute{
 
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
 		Result result = new Result();
-		
-		result.setPath("/app/admin/jsp/login.jsp");
+		System.out.println(" 봉사목록 진입");
+		result.setPath("/app/admin/jsp/volunteer-manage/volun-list.jsp");
 		result.setRedirect(true);
 		
 		return result;

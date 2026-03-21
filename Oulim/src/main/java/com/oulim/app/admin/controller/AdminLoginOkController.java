@@ -3,6 +3,7 @@ package com.oulim.app.admin.controller;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -18,6 +19,7 @@ public class AdminLoginOkController implements Execute {
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stuob
+		System.out.println("adminloginOk컨트롤러=====");
 		
 	    AdminDTO adminDTO = new AdminDTO();
 	    AdminDAO adminDAO = new AdminDAO();
@@ -25,20 +27,28 @@ public class AdminLoginOkController implements Execute {
 	    //값을 받고
 	    String adminId = request.getParameter("adminId");
 	    String adminPw = request.getParameter("adminPw");
+	    System.out.println("adminloginOk컨트롤러==" + adminId);
+	    System.out.println("adminloginOk컨트롤러==" + adminPw);
+	    		
 	    HttpSession session = request.getSession(); // 세션이 안전하대요
 	    //dto에 담아서
 	    adminDTO.setAdminId(adminId);
 	    adminDTO.setAdminPw(adminPw);
 	    //dao 호출
-	    AdminDTO loginAdmin = adminDAO.login(adminDTO);
-
+	    int adminNo = adminDAO.login(adminDTO);
+	    System.out.println(adminNo);
+	    
 	    String path;
+	    
 
-	    if (loginAdmin != null) {
-	        // 로그인 성공
-	        session.setAttribute("admin", loginAdmin);
-	        path = "/app/admin/jsp/dashboard/dashboard.jsp"; // 로그인 성공 시 대시보드
-	    } else {
+	    //세션값 불러오기
+	    if(adminNo != 0) {
+	          path = "/app/admin/jsp/dashboard/dashboard.jsp"; //로그인 성공시 경로
+		      session.setAttribute("adminNo", adminNo);
+	          System.out.println("세션값 : " + adminNo);
+//		      path = "/app/admin/jsp/dashboard/dashboard.jsp"; // 로그인 성공 시 대시보드
+
+	      }else {
 	        // 로그인 실패
 	        path = "/admin/login.adm?login=fail";
 	    }

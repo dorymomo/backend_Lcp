@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adminCompany">
+
+
+    <!-- 1. 기업회원 승인 목록 조회 -->
+
+    <select id="selectList"
+            parameterType="com.oulim.app.admin.dto.AdminCompanyListDTO"
+            resultType="com.oulim.app.admin.dto.AdminCompanyListDTO">
+        <![CDATA[
+        SELECT *
+        FROM (
+            SELECT ROWNUM AS rnum, subquery.*
+            FROM (
+                SELECT
+                    U.USER_NO AS userNo,
+                    O.ORGAN_NAME AS organName,
+                    U.USER_ID AS userId,
+                    O.ORGAN_CERT_NUM AS organCertNum
+                FROM TBL_USER U
+                JOIN TBL_ORGAN O
+                    ON U.ORGAN_NO = O.ORGAN_NO
+                WHERE U.USER_TYPE = 2          -- 기업회원
+                  AND U.USER_STATUS = 2        -- 승인 대기
+                ORDER BY U.USER_NO DESC
+            ) subquery
+        )
+        WHERE rnum BETWEEN #{startRow} AND #{endRow}
+        ]]>
+    </select>
+
+
+    <!-- 2. 기업회원 총 개수 (페이지네이션용) -->
+  
+    <select id="selectCount"
+            resultType="int">
+        <![CDATA[
+        SELECT COUNT(*)
+        FROM TBL_USER U
+        WHERE U.USER_TYPE = 2
+          AND U.USER_STATUS = 2
+        ]]>
+    </select>
+
+
+
+    <!-- 3. 기업회원 상세 조회 -->
+
+    <select id="selectDetail"
+            parameterType="int"
+            resultType="com.oulim.app.admin.dto.AdminCompanyDetailDTO">
+        <![CDATA[
+        SELECT
+            U.USER_NO AS userNo,
+            U.ORGAN_NO AS organNo,
+            O.ORGAN_NAME AS organName,
+            U.USER_NAME AS userName,
+            U.USER_BIRTH AS userBirth,
+            O.ORGAN_CERT_NUM AS organCertNum,
+            U.USER_EMAIL AS userEmail,
+            U.USER_ADDRESS AS userAddress,
+            U.USER_ADDRESS_DETAIL AS userAddressDetail,
+            OC.ORGAN_FILE_SYSTEM_NAME AS organFileSystemName,
+            OC.ORGAN_FILE_ORIGINAL_NAME AS organFileOriginalName
+        FROM TBL_USER U
+        JOIN TBL_ORGAN O
+            ON U.ORGAN_NO = O.ORGAN_NO
+        LEFT JOIN TBL_ORGAN_CERT OC
+            ON U.USER_NO = OC.USER_NO
+        WHERE U.USER_NO = #{value}
+        ]]>
+    </select>
+
+
+
+    <!-- 4. 기업회원 승인 처리 -->
+
+    <update id="approveCompany"
+            parameterType="int">
+        <![CDATA[
+        UPDATE TBL_USER
+        SET USER_STATUS = 1      -- 승인 완료
+        WHERE USER_NO = #{value}
+        ]]>
+    </update>
+
+
+    <!-- 5. 기업회원 반려 처리 -->
+
+    <update id="rejectCompany"
+            parameterType="int">
+        <![CDATA[
+        UPDATE TBL_USER
+        SET USER_STATUS = 0      -- 탈퇴 또는 반려 상태
+        WHERE USER_NO = #{value}
+        ]]>
+    </update>
+
+</mapper>

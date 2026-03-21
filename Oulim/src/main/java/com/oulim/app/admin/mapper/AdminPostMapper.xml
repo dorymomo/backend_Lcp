@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="adminboard">
-	
-		<!-- 전체 게시글 조회 -->
-	<select id="admin" parameterType="map" resultType="CommunityPostJoinDTO">
+<mapper namespace="adminPost">
+
+		<!-- 조건 게시글 조회 -->
+	<select id="admin.select" parameterType="AdminBoardDTO" resultType="AdminBoardDTO">
  	<![CDATA[
         SELECT * FROM (
             SELECT ROWNUM AS rnum, subquery.*
@@ -26,6 +26,9 @@
                             </when>
                             <when test="searchType == 'writer'">
                                 tcp.user_nickname LIKE '%' || #{keyword} || '%'
+                            </when>
+                            <when test="searchType == 'date'">
+                            	tcp.post_date LIKE '%' || #{keyword} || '%'
                             </when>
                         </choose>
                     </if>
@@ -57,11 +60,20 @@
 		WHERE post_no = #{postNo}
 	</delete>
 	
-		<!-- 게시글 삭제 -->
-	<delete id="delete" parameterType="int">
-		DELETE FROM tbl_community_post
-		WHERE post_no = #{postNo}
-	</delete>
-<!--  -->
-
+      
+   <!-- 전체 게시글 조회 -->
+   <select id="admin.selectAll" resultType="BoardListDTO">
+   <![CDATA[
+      SELECT * FROM (
+         SELECT ROWNUM AS rnum, subquery.*
+         FROM (
+            SELECT m.member_number, m.member_id, b.board_number, b.board_title, 
+               b.board_content, b.board_date, b.board_read_count
+            FROM tbl_member m JOIN tbl_board b
+            ON m.member_number = b.member_number
+            ORDER BY b.board_date DESC
+         ) subquery
+      ) WHERE rnum BETWEEN #{startRow} AND #{endRow}
+   ]]>
+   </select>
 </mapper>

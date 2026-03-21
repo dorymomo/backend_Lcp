@@ -1,0 +1,59 @@
+
+/* 사이드바 스타일 */
+.l-sidebar {
+    width: 240px;
+    background-color: #438210; /* 이미지의 진한 초록색 */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.adminnow {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 20px;
+}
+
+.profile-circle {
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.c-button--logout {
+    background: white;
+    color: #438210;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-item a {
+    display: block;
+    padding: 15px 25px;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.menu-item:hover, .menu-item.active {
+    background-color: rgba(0,0,0,0.1);
+}
+
+.menu-item.active a {
+    color: white;
+    font-weight: bold;
+}

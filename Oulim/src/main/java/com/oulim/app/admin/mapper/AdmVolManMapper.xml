@@ -12,17 +12,22 @@
         FROM (
             SELECT
                 VA.Volun_Act_No          AS volunActNo,
+                VA.Volun_Act_Title         AS volunActTitle,
                 O.Organ_Name             AS orgName,
+                VA.Volun_Act_Recru_Begin   AS volunActRecruBegin,
+                VA.Volun_Act_Recru_End     AS volunActRecruEnd,
 		        TO_CHAR(VA.Volun_Act_Proc_Begin, 'YYYY-MM-DD')  AS volunActProcBegin,
 		        TO_CHAR(VA.Volun_Act_Proc_End, 'YYYY-MM-DD')    AS volunActProcEnd,
                 VA.Volun_Act_Point       AS point,
 
                 /* 진행 상태 */
                 CASE
+                	WHEN SYSDATE &lt; VA.Volun_Act_Recru_Begin THEN '모집예정'
+                	 WHEN SYSDATE BETWEEN VA.Volun_Act_Recru_Begin AND VA.Volun_Act_Recru_End THEN '모집중'
+                	 WHEN SYSDATE > VA.Volun_Act_Recru_End AND SYSDATE &lt; VA.Volun_Act_Proc_Begin THEN '모집마감'
                     WHEN SYSDATE &lt; VA.Volun_Act_Proc_Begin THEN '진행예정'
                     WHEN SYSDATE BETWEEN VA.Volun_Act_Proc_Begin AND VA.Volun_Act_Proc_End THEN '진행중'
-                    ELSE '종료'
-                END AS status
+                    ELSE '종료' END AS recruStatus
 
             FROM TBL_VOLUN_ACTIVITY VA
             LEFT JOIN TBL_ORGAN O

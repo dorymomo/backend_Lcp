@@ -21,6 +21,7 @@
                 VA.Volun_Act_Address       AS volunActAddress,
 
                 /* 모집 상태 */
+                
                 CASE
                     WHEN SYSDATE BETWEEN VA.Volun_Act_Recru_Begin AND VA.Volun_Act_Recru_End THEN '모집중'
                     WHEN SYSDATE &lt; VA.Volun_Act_Recru_Begin THEN '모집예정'

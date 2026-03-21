@@ -22,53 +22,12 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/component/badge.css" />
   <link rel="stylesheet" href="${pageContext.request.contextPath}/app/admin/css/community-manage/post-detail.css" />
   <script defer src="${pageContext.request.contextPath}/app/admin/js/community-manage/post-detail.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/app/admin/css/aside.css" />
 </head>
 
 <body>
-
-
-  <main class="l-main">
-      <!-- 사이드바 -->
-    <aside>
-      <!-- 관리자 영역 -->
-      <div class="adminnow">
-        <img src="" width="40" height="40" />
-		<form action ="${pageContext.request.contextPath}/admin/logout.adm" >
-        <button class="c-button c-button--primary c-button--md">
-          로그아웃
-        </button>
-        </form>
-      </div>
-
-      <!-- 사이드바 메뉴 -->
-      <nav class="sidebar-menu">
-        <ul>
-          <li class="menu-item">
-            <a href="${pageContext.request.contextPath}admin/dashboard.amd">통계</a>
-          </li>
-
-          <!-- 회원관리 -->
-          <li class="menu-item dropdown">
-            <a href="#" class="menu-title"> 회원관리 </a>
-
-            <ul class="submenu">
-              <li><a href="${pageContext.request.contextPath}/admin/companycertification.adm">기업회원</a></li>
-              <li><a href="${pageContext.request.contextPath}/admin/memlist.adm">회원조회</a></li>
-            </ul>
-          </li>
-
-          <!-- 봉사활동관리 -->
-          <li class="menu-item dropdown">
-            <a href="${pageContext.request.contextPath}/admin/volunlist.adm" class="menu-title"> 봉사활동관리 </a>
-          </li>
-
-          <!-- 게시판관리 -->
-          <li class="menu-item dropdown">
-            <a href="${pageContext.request.contextPath}/admin/postlist.adm" class="menu-title"> 게시판관리 </a>
-          </li>
-        </ul>
-      </nav>
-    </aside>
+	<main class="l-main">
+	<jsp:include page="/app/admin/jsp/aside.jsp"/>
 
     <!-- 메인 컨텐츠 -->
 

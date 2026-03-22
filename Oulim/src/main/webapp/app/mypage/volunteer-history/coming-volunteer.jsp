@@ -114,6 +114,7 @@
 
 
 
+
 				<div class="main-section3">
 					<c:if test="${empty comingVol}">
 						<li>등록된 봉사활동이 없습니다.</li>
@@ -121,7 +122,7 @@
 
 					<c:forEach var="item" items="${comingVol}">
 						<a
-							href="${pageContext.request.contextPath}/volunteer-activity/detail.va/volunAct-detail.va?volunActNo=${item.volunActNo}">
+							href="${pageContext.request.contextPath}/volunteer-activity/detail.va?volunActNo=${item.volunActNo}">
 							<div class="c-card">
 								<div class="c-card__header">
 									<span class="c-badge c-badge--primary">모집중</span>

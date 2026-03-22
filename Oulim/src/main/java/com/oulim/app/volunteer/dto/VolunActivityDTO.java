@@ -50,6 +50,7 @@ public class VolunActivityDTO {
 	private String ageGroupName; // 활동가능연령대
 	private int startRow;
 	private int endRow;
+	
 	public int getVolunActNo() {
 		return volunActNo;
 	}

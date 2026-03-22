@@ -18,7 +18,16 @@ public class VolunApplyDTO {
 	private String userBirth;	//생년월일
 	private String userAge;		// 나이
 	private int currentCount;	// 날짜 계산용
+	private String userId;
 	
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
 	public int getVolunActNo() {
 		return volunActNo;
 	}

@@ -43,7 +43,8 @@
 	if (error != null) {
 	%>
 	<script>
-		alert('<%=error%>');
+		alert('<%=error%>
+		');
 	</script>
 	<%
 	}
@@ -82,22 +83,27 @@
 						</div>
 						<div class="c-password-find-input">
 							<h6>이메일</h6>
-							<input type="text" name="userEmail" id="find-user-email"
-								class="c-input" placeholder="이메일 입력해주세요" />
-								<button type="button" id="find-pw-email-btn" name="find-pw-email-btn" class="c-button c-button--secondary c-button--md">
-										인증전송</button>
+							<div class="l-password-find-email-layout">
+								<input type="text" name="userEmail" id="find-user-email"
+									class="c-input" placeholder="이메일 입력해주세요" />
+								<button type="button" id="find-pw-email-btn"
+									name="find-pw-email-btn"
+									class="c-button c-button--secondary c-button--md">
+									인증전송</button>
+							</div>
 							<p id="is-find-user-email-error" class="is-error-text"></p>
 						</div>
 						<div class="c-password-find-input-number">
 							<h6>인증번호</h6>
 							<div class="l-password-find-number-layout">
 								<div>
-									<input type="text" name="verify" id="find-pw-verify" class="c-input"
-										placeholder="인증번호입력" />
+									<input type="text" name="verify" id="find-pw-verify"
+										class="c-input" placeholder="인증번호입력" />
 									<div class="c-password-find-numbertime" id="find-pw-timer">3:00</div>
 								</div>
 								<div class="">
-									<button type="button" id="find-pw-verify-btn" class="c-button c-button--secondary c-button--md">
+									<button type="button" id="find-pw-verify-btn"
+										class="c-button c-button--secondary c-button--md">
 										인증확인</button>
 								</div>
 							</div>

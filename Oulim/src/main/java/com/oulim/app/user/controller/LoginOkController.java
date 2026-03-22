@@ -53,7 +53,14 @@ public class LoginOkController implements Execute{
 			path = "/index.jsp"; // 성공 후 이동 경로 수정
 			
 		} else {
-			path = "/user/login.usr?login=fail";
+		    session.removeAttribute("userNo");
+		    session.removeAttribute("userNickname");
+		    session.removeAttribute("userType");
+		    session.removeAttribute("organNo");
+		    session.removeAttribute("organName");
+
+		    path = "/user/login.usr?login=fail";
+		    result.setPath(path);
 		}
 		
 		result.setRedirect(true); //세션에 저장된 값은 유지

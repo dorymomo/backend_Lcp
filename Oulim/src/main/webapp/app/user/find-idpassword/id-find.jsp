@@ -33,7 +33,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/asset/css/pages/main/footer.css" />
 <script>
-  const contextPath = "${pageContext.request.contextPath}";
+	const contextPath = "${pageContext.request.contextPath}";
 </script>
 </head>
 
@@ -42,7 +42,8 @@
 	<div class="l-main">
 		<div class="l-container">
 			<div class="p-id-find">
-				<form action="${pageContext.request.contextPath}/user/idFindOk.usr" method="post">
+				<form action="${pageContext.request.contextPath}/user/idFindOk.usr"
+					method="post">
 					<input type="hidden" id="find-id-error-message" value="${error}">
 					<div class="l-id-find-layout">
 						<div>
@@ -55,8 +56,8 @@
 
 						<div class="c-id-find-input">
 							<h6>이름</h6>
-							<input type="text" name="userName" id="find-id-user-name" class="c-input"
-								placeholder="이름 입력해주세요" />
+							<input type="text" name="userName" id="find-id-user-name"
+								class="c-input" placeholder="이름 입력해주세요" />
 							<p id="is-find-id-user-name-error" class="is-error-text"></p>
 						</div>
 						<div class="c-id-find-input">
@@ -67,30 +68,35 @@
 						</div>
 						<div class="c-id-find-input">
 							<h6>이메일</h6>
-							<input type="text" name="userEmail" id="find-id-user-email"
-								class="c-input" placeholder="이메일 입력해주세요" />
-								<button type="button" id="find-id-email-btn" name="find-id-email-btn" class="c-button c-button--secondary c-button--md">
-										인증전송</button>
+							<div class="l-id-find-email-layout">
+								<input type="text" name="userEmail" id="find-id-user-email"
+									class="c-input" placeholder="이메일 입력해주세요" />
+
+								<button type="button" id="find-id-email-btn"
+									class="c-button c-button--secondary c-button--md">
+									인증전송</button>
+							</div>
+
 							<p id="is-find-id-user-email-error" class="is-error-text"></p>
 						</div>
 						<div class="c-id-find-input-number">
 							<h6>인증번호</h6>
 							<div class="l-id-find-number-layout">
 								<div>
-									<input type="text" name="verify" id="find-id-verify" class="c-input"
-										placeholder="인증번호입력" />
+									<input type="text" name="verify" id="find-id-verify"
+										class="c-input" placeholder="인증번호입력" />
 									<div class="c-id-find-numbertime" id="find-id-timer">3:00</div>
 								</div>
 								<div class="">
-									<button type="button" id="find-id-verify-btn" class="c-button c-button--secondary c-button--md">
+									<button type="button" id="find-id-verify-btn"
+										class="c-button c-button--secondary c-button--md">
 										인증확인</button>
 								</div>
 							</div>
 						</div>
 						<div class="c-id-find-nextbtn">
 							<button type="submit" id="is-id-find-btn"
-								class="c-button c-button--primary c-button--md">
-								아이디 찾기</button>
+								class="c-button c-button--primary c-button--md">아이디 찾기</button>
 						</div>
 					</div>
 				</form>

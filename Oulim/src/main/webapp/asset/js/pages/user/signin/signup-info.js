@@ -60,6 +60,7 @@ nicknameCheckBtn.addEventListener("click", () => {
 	fetch(`${contextPath}/user/checkOk.usr?type=nickname&value=${encodeURIComponent(value)}`)
 		.then(res => res.text())
 		.then(result => {
+			console.log("닉네임 응답:", result);
 			result = result.trim();
 
 			if (result === "duplicated") {

@@ -106,27 +106,8 @@
 							<div class="l-signup-verify-layout-btn">
 								<input type="text" name="userPhoneNum" id="user-phone"
 									class="c-input" placeholder="휴대전화번호 입력" />
-								<div class="c-signup-btn">
-									<button class="c-button c-button--secondary c-button--md"
-										type="button">인증 보내기</button>
-								</div>
 							</div>
 							<p id="is-user-phone-error" class="is-error-text"></p>
-						</div>
-
-						<div class="c-signup-verify-input-number">
-							<h6>인증번호</h6>
-							<div class="l-signup-verify-number-layout">
-								<div>
-									<input type="text" name="" id="" class="c-input"
-										placeholder="인증번호입력" />
-									<div class="c-signup-verify-numbertime">3:00</div>
-								</div>
-								<div class="c-signup-btn">
-									<button class="c-button c-button--secondary c-button--md"
-										type="button">인증확인</button>
-								</div>
-							</div>
 						</div>
 						<div class="c-signup-verify-nextbtn">
 							<button class="c-button c-button--primary c-button--md"

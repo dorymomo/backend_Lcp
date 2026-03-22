@@ -21,7 +21,6 @@ public class NormalJoinSecondOkController implements Execute {
         UserDAO userDAO = new UserDAO();
         Result result = new Result();
         
-        
         userDTO.setUserName(request.getParameter("userName"));
         userDTO.setUserBirth(request.getParameter("userBirth"));
         userDTO.setUserEmail(request.getParameter("userEmail"));

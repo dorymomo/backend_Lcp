@@ -33,7 +33,7 @@ public class UserDAO {
     }
     
     public int checkNickname(String userNickname) {
-    	return sqlSession.selectOne("user.chkUserId", userNickname);
+    	return sqlSession.selectOne("user.chkUserNickname", userNickname);
     }
     
     public int checkPhoneNum(String userPhoneNum) {

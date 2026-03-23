@@ -65,7 +65,8 @@
         <div class="volun-notyet">
           <div class="notyet-head">
             <p>미처리 봉사 건</p>
-            <button class="volun-list">바로가기</button>
+            <button class="c-button c-button--primary c-button--sm"
+             onClick="location.href='${pageContext.request.contextPath}/admin/volunlist.adm'">바로가기</button>
           </div>
           <div class="c-list c-list--4col">
 			<div class="c-list__header">

@@ -31,7 +31,6 @@
 
 <body data-message="${param.message}">
 	<jsp:include page="/app/include/header.jsp" />
-<input type= "hidden" value="${userMap.userPw }">
   <main class="l-main">
 
     <div class="l-mypage">

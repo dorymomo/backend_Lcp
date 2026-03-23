@@ -1,4 +1,3 @@
-const accept = document.getElementById("accept");
 const cancel = document.getElementById("cancel");
 
 const password = document.getElementById("userPw");
@@ -23,17 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 	
 
-	
-	 
-		
-  
-
-    
-
 
 cancel.addEventListener("click", () => {
-    // location("../");
-    alert("취소");
+    window.location.href = "/";
 });
 
 const pwBtn = document.getElementById("c-password-btn-toggle");
@@ -50,12 +41,6 @@ pwBtn.addEventListener("click", (e) => {
   }
 });
 
-// 1. 입력 값이 없이 확인 버튼 클릭 시, alert > 입력해주세요.
-
-// 2. 취소 버튼 누르면 history(-1);
-
-// 3. 확인 버튼 클릭 > 비밀번호 불일치 시, 비밀번호가 일치하지 않습니다
-// 비밀번호 검증 로직 필요? ex) 정규식
 
 
 

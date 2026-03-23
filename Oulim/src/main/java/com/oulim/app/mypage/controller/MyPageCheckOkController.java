@@ -61,16 +61,6 @@ public class MyPageCheckOkController implements Execute{
 			MyPageJoinDTO finVolunInfo = mypageDAO.miniFinVol(userNo);
 			List<MyPageJoinDTO> pointInfo = mypageDAO.miniPoint(userNo);
 			MyPageJoinDTO comVolunInfo = mypageDAO.miniComVol(userNo);
-//			System.out.println("예정 봉사 " + comVolunInfo.getVolunActTitle());
-//			System.out.println("완료 봉사 " + finVolunInfo.getVolunActTitle());
-//			System.out.println("예정 봉사 기간" + comVolunInfo.getComVolunActProcBegin());
-//			System.out.println("완료 봉사 기간 : " + finVolunInfo.getFinVolunActProcEnd());
-//			System.out.println("포인트 정보 : " + pointInfo);
-			
-//			System.out.println(pointInfo);
-//			System.out.println("fin" + finVolunInfo.toString());
-//			System.out.println("com" + comVolunInfo.toString());
-//			System.out.println("sum" + summaryInfo.toString());
 			request.setAttribute("miniPoint", pointInfo);
 			
 			request.setAttribute("totalVolunTime", summaryInfo.getTotalVolunTime());
@@ -114,7 +104,7 @@ public class MyPageCheckOkController implements Execute{
 			
 			
 			
-			result.setPath("/app/mypage/profile/profile.jsp?check=success or fail");
+			result.setPath("/app/mypage/profile/profile.jsp");
 			result.setRedirect(false);
 			
 			
@@ -139,11 +129,6 @@ public class MyPageCheckOkController implements Execute{
 			return result;
 		}
 		
-//		path = "/app/mypage/check/check.mp"; // 일단 내 페이지로 > 테스트용
-//		result.setPath(path);
-//		result.setRedirect(false);
-		
-//		return result;
 		
 		
 	}

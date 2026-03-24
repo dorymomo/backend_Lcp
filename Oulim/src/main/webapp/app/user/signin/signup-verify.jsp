@@ -45,6 +45,16 @@
 					method="post">
 					<input type="hidden" id="company-email-verified" name="emailVerified" value="false" />
 					<div class="l-signup-verify-layout">
+					<%
+					    String joinError = (String) request.getAttribute("joinError");
+					    if (joinError != null) {
+					%>
+					<script>
+					    alert("<%= joinError %>");
+					</script>
+					<%
+					    }
+					%>
 						<div>
 							<h2>회원가입</h2>
 						</div>
@@ -116,6 +126,7 @@
 						<div class="c-signup-verify-nextbtn">
 							<button class="c-button c-button--primary c-button--md"
 								id="is-next-btn" type="submit">다 음</button>
+						</div>
 						</div>
 					</div>
 				</form>

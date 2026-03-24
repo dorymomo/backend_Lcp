@@ -24,7 +24,10 @@ public class OrganJoinFirstOkController implements Execute{
 		Boolean emailVerified = (Boolean) request.getSession().getAttribute("emailVerified");
 
 		if (emailVerified == null || !emailVerified) {
-			throw new ServletException("이메일 인증이 완료되지 않았습니다.");
+		    request.setAttribute("joinError", "이메일 인증이 완료되지 않았습니다.");
+		    result.setPath("/app/user/signin/signup-verify-company.jsp");
+		    result.setRedirect(false);
+		    return result;
 		}
 		
 		final String UPLOAD_PATH = request.getSession().getServletContext().getRealPath("/") + "upload/";

@@ -38,78 +38,83 @@
 	<jsp:include page="/app/include/header.jsp" />
 	<div class="l-main">
 		<div class="l-container">
-			<form action="${pageContext.request.contextPath}/user/normalJoinSecondOk.usr" method="post">
-				<input type="hidden" name="userName" value="${userName}">
-				<input type="hidden" name="userBirth" value="${userBirth}">
-				<input type="hidden" name="userEmail" value="${userEmail}">
-				<input type="hidden" name="userPhoneNum" value="${userPhoneNum}">
+			<form
+				action="${pageContext.request.contextPath}/user/normalJoinSecondOk.usr"
+				method="post">
+				<input type="hidden" name="userName" value="${userName}"> <input
+					type="hidden" name="userBirth" value="${userBirth}"> <input
+					type="hidden" name="userEmail" value="${userEmail}"> <input
+					type="hidden" name="userPhoneNum" value="${userPhoneNum}">
 				<div class="p-signup-info">
 					<div class="l-signup-info-layout">
-						<div>
-							<h2>회원가입</h2>
-						</div>
-						<div class="c-signup-info-text">
-							<h4>가입하실 아이디와 비밀번호를 작성해 주세요.</h4>
-						</div>
-						<div>
-							<h6>닉네임</h6>
-							<div class="l-signup-info-input-layout">
-								<div>
-									<input type="text" name="userNickname" id="user-nickname" class="c-input"
-										placeholder="닉네임 입력" maxlength="50" />
-									<p id="is-user-nickname-error" class="is-error-text"></p>
-								</div>
-								<div class="c-signup-btn">
-									<button type="button"
-										class="c-button c-button--secondary c-button--md"
-										id="c-nickname-dbcheck-btn">중복확인</button>
-								</div>
+						<div class="l-signup-info-layout">
+							<div>
+								<h2>회원가입</h2>
 							</div>
-						</div>
-						<div>
-							<h6>아이디</h6>
-							<div class="l-signup-info-input-layout">
-								<div>
-									<input type="text" name="userId" id="user-id" class="c-input"
-										placeholder="아이디 입력" maxlength="50" />
-									<p id="is-user-id-error" class="is-error-text"></p>
-								</div>
-								<div class="c-signup-btn">
-									<button type="button"
-										class="c-button c-button--secondary c-button--md"
-										id="c-id-dbcheck-btn">중복확인</button>
+							<div class="c-signup-info-text">
+								<h4>가입하실 아이디와 비밀번호를 작성해 주세요.</h4>
+							</div>
+							<div>
+								<h6>닉네임</h6>
+								<div class="l-signup-info-input-layout">
+									<div>
+										<input type="text" name="userNickname" id="user-nickname"
+											class="c-input" placeholder="닉네임 입력" maxlength="50" />
+										<p id="is-user-nickname-error" class="is-error-text"></p>
+									</div>
+									<div class="c-signup-btn">
+										<button type="button"
+											class="c-button c-button--secondary c-button--md"
+											id="c-nickname-dbcheck-btn">중복확인</button>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="c-signup-info-input-number">
-							<h6>비밀번호</h6>
-							<div class="l-toggle-layout">
-								<input type="password" name="userPw" id="user-password"
-									class="c-input" maxlength="50" />
-								<button type="button" id="c-password-btn-toggle">
-									<img
-										src="${pageContext.request.contextPath}/asset/image/user/password-on.png"
-										alt="eye" id="c-password-toggle-img" />
-								</button>
+							<div>
+								<h6>아이디</h6>
+								<div class="l-signup-info-input-layout">
+									<div>
+										<input type="text" name="userId" id="user-id" class="c-input"
+											placeholder="아이디 입력" maxlength="50" />
+										<p id="is-user-id-error" class="is-error-text"></p>
+									</div>
+									<div class="c-signup-btn">
+										<button type="button"
+											class="c-button c-button--secondary c-button--md"
+											id="c-id-dbcheck-btn">중복확인</button>
+									</div>
+								</div>
 							</div>
-							<p id="is-user-password-error" class="is-error-text"></p>
-						</div>
-						<div class="c-signup-info-input-number">
-							<h6>비밀번호확인</h6>
-							<div class="l-toggle-layout-2">
-								<input type="password" name="userPwChk" id="user-password-check"
-									class="c-input" maxlength="50" />
-								<button type="button" id="c-password-btn-toggle-2">
-									<img
-										src="${pageContext.request.contextPath}/asset/image/user/password-off.png"
-										alt="eye" id="c-password-toggle-img-2" />
-								</button>
+							<div class="c-signup-info-input-number">
+								<h6>비밀번호</h6>
+								<div class="l-toggle-layout">
+									<input type="password" name="userPw" id="user-password"
+										class="c-input" maxlength="50" />
+									<button type="button" id="c-password-btn-toggle">
+										<img
+											src="${pageContext.request.contextPath}/asset/image/user/password-on.png"
+											alt="eye" id="c-password-toggle-img" />
+									</button>
+								</div>
+								<p id="is-user-password-error" class="is-error-text"></p>
 							</div>
-							<p id="is-user-password-check-error" class="is-error-text"></p>
-						</div>
-						<div class="c-signup-info-nextbtn">
-							<button type="submit" class="c-button c-button--primary c-button--md"
-								id="is-signup-btn">회원가입</button>
+							<div class="c-signup-info-input-number">
+								<h6>비밀번호확인</h6>
+								<div class="l-toggle-layout-2">
+									<input type="password" name="userPwChk"
+										id="user-password-check" class="c-input" maxlength="50" />
+									<button type="button" id="c-password-btn-toggle-2">
+										<img
+											src="${pageContext.request.contextPath}/asset/image/user/password-off.png"
+											alt="eye" id="c-password-toggle-img-2" />
+									</button>
+								</div>
+								<p id="is-user-password-check-error" class="is-error-text"></p>
+							</div>
+							<div class="c-signup-info-nextbtn">
+								<button type="submit"
+									class="c-button c-button--primary c-button--md"
+									id="is-signup-btn">회원가입</button>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -118,4 +123,5 @@
 	</div>
 	<jsp:include page="/app/include/footer.jsp" />
 </body>
+
 </html>

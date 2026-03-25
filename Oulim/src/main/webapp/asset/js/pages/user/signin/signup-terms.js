@@ -85,6 +85,12 @@ nextBtn.addEventListener("click", function (e) {
     e.preventDefault();
     alert("약관에 모두 동의해주세요.");
   }
+  
+  if (userTypeInput.value !== "1" && userTypeInput.value !== "2") {
+      e.preventDefault();
+      alert("일반회원 또는 기업회원 중 하나를 선택해주세요.");
+      return;
+    }
 });
 
 // 기업

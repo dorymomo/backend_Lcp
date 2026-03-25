@@ -56,7 +56,7 @@
 					    }
 					%>
 						<div>
-							<h2>회원가입</h2>
+							<h2>일반 회원가입</h2>
 						</div>
 
 						<div class="c-signup-verify-text">

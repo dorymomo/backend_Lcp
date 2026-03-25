@@ -56,7 +56,7 @@
 						<%
 						    }
 						%>
-							<h2>회원가입</h2>
+							<h2>기업 회원가입</h2>
 						</div>
 
 						<div class="c-signup-verify-company-text">

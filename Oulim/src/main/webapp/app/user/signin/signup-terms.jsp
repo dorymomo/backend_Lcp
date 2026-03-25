@@ -42,7 +42,7 @@
 				<form id="signup-terms-form"
 					action="${pageContext.request.contextPath}/user/signupVerify.usr"
 					method="get" data-context-path="${pageContext.request.contextPath}">
-					<input type="hidden" name="userType" id="user-type" value="1" />
+					<input type="hidden" name="userType" id="user-type" value="" />
 					<div class="l-signup-main">
 						<div>
 							<h2>회원가입</h2>

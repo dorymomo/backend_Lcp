@@ -31,15 +31,30 @@ public class PwChangeOkController implements Execute {
 			return result;
 		}
 		
-		// 서버에서 비번 검사 한번 더 진행
 		String userPw = request.getParameter("userPw");
 		String userPwCheck = request.getParameter("userPwCheck");
 
-		if(userPw == null || userPwCheck == null || !userPw.equals(userPwCheck)) {
-		    request.setAttribute("error", "비밀번호가 일치하지 않습니다.");
-		    result.setRedirect(false);
-		    result.setPath("/app/user/find-idpassword/password-reset.jsp");
-		    return result;
+		if (userPw == null || userPw.trim().isEmpty() ||
+			userPwCheck == null || userPwCheck.trim().isEmpty()) {
+			request.setAttribute("error", "비밀번호를 입력해주세요.");
+			result.setRedirect(false);
+			result.setPath("/app/user/find-idpassword/password-reset.jsp");
+			return result;
+		}
+		
+		if (!userPw.equals(userPwCheck)) {
+			request.setAttribute("error", "비밀번호가 일치하지 않습니다.");
+			result.setRedirect(false);
+			result.setPath("/app/user/find-idpassword/password-reset.jsp");
+			return result;
+		}
+		
+		String passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[!@#$%^&*]).{8,}$";
+		if (!userPw.matches(passwordRegex)) {
+			request.setAttribute("error", "비밀번호는 영문, 숫자, 특수문자를 포함한 8자 이상이어야 합니다.");
+			result.setRedirect(false);
+			result.setPath("/app/user/find-idpassword/password-reset.jsp");
+			return result;
 		}
 		
 		userDTO.setUserNo(userNo);
@@ -50,8 +65,7 @@ public class PwChangeOkController implements Execute {
 		session.removeAttribute("resetUserNo");
 
 		result.setRedirect(true);
-		result.setPath(request.getContextPath() + "/user/login.usr");
+		result.setPath(request.getContextPath() + "/user/login.usr?status=pwChanged");
 		return result;
 	}
-
 }

@@ -84,9 +84,13 @@ public class UserFrontController extends HttpServlet {
 			System.out.println("회원가입 처리 완료");
 			execute = new SignupCompleteController();
 			
-		} else if (target.equals("/user/idFindOk.usr")) {
+		} else if (target.equals("/user/idFind.usr")) {
 			System.out.println("아이디 찾기 처리 요청");
 		    execute = new IdFindController();
+		    
+		} else if (target.equals("/user/idFindOk.usr")) {
+			System.out.println("아이디 찾기 처리 요청");
+		    execute = new IdFindOkController();
 		    
 		} else if (target.equals("/user/pwFind.usr")) {
 		    System.out.println("비밀번호 찾기 확인 요청");

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!doctype html>
 <html lang="ko">
 <head>
@@ -33,6 +35,11 @@
 </head>
 
 <body>
+<c:if test="${param.status eq 'pwChanged'}">
+    <script>
+        alert("비밀번호가 변경되었습니다.");
+    </script>
+</c:if>
 	<jsp:include page="/app/include/header.jsp" />
 	<div class="l-main">
 		<div class="l-container">
@@ -73,11 +80,11 @@
 									<a href="${pageContext.request.contextPath}/user/terms.usr">회원가입</a>
 								</div>
 								<div>
-									<a href="${pageContext.request.contextPath}/app/user/find-idpassword/id-find.jsp">아이디
+									<a href="${pageContext.request.contextPath}/user/idFind.usr">아이디
 										찾기</a>
 								</div>
 								<div>
-									<a href="${pageContext.request.contextPath}/app/user/find-idpassword/password-find.jsp">비밀번호
+									<a href="${pageContext.request.contextPath}/user/pwFind.usr">비밀번호
 										찾기</a>
 								</div>
 							</div>

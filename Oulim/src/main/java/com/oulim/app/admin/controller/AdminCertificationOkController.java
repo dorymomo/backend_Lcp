@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.oulim.app.admin.dao.AdminDAO;
+import com.oulim.app.admin.dto.AdminCompanyCertificationDTO;
 import com.oulim.app.common.controller.Execute;
 import com.oulim.app.common.controller.Result;
 
@@ -19,8 +20,17 @@ public class AdminCertificationOkController implements Execute{
 			throws ServletException, IOException {
 		Result result = new Result();
 		AdminDAO adminDAO = new AdminDAO();
+		
 		String strUserNo = request.getParameter("userNo");
 		int userNo = Integer.valueOf(strUserNo);
+		AdminCompanyCertificationDTO admComCertDTO = adminDAO.getCertUserDetail(userNo);
+		if(admComCertDTO == null || admComCertDTO.getUserStatus() != 2) {
+			System.out.println("이미 처리된 유저입니다.");
+			result.setPath("/admin/companycertification.adm");
+			result.setRedirect(true);
+			return result;
+		}
+		
 		String strIsApprove = request.getParameter("isApprove");
 		boolean isApprove = strIsApprove.equals("true") ? true : false;
 		boolean queryResult = false;

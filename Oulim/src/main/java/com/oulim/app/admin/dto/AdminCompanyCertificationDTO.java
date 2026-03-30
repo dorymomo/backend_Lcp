@@ -29,6 +29,8 @@ public class AdminCompanyCertificationDTO {
     private String organCertNum;
     private String organFileSystemName;
     private String organFileOriginalName;
+    public int userStatus;
+    
 	public int getUserNo() {
 		return userNo;
 	}
@@ -91,12 +93,19 @@ public class AdminCompanyCertificationDTO {
 	public void setUserBirth(String userBirth) {
 		this.userBirth = userBirth;
 	}
+	
+	public int getUserStatus() {
+		return userStatus;
+	}
+	public void setUserStatus(int userStatus) {
+		this.userStatus = userStatus;
+	}
+
 	@Override
 	public String toString() {
 		return "AdminCompanyCertificationDTO [userNo=" + userNo + ", organName=" + organName + ", userId=" + userId
 				+ ", organNo=" + organNo + ", userName=" + userName + ", userEmail=" + userEmail + ", userBirth="
 				+ userBirth + ", organCertNum=" + organCertNum + ", organFileSystemName=" + organFileSystemName
-				+ ", organFileOriginalName=" + organFileOriginalName + "]";
+				+ ", organFileOriginalName=" + organFileOriginalName + ", userStatus=" + userStatus + "]";
 	}
-
 }

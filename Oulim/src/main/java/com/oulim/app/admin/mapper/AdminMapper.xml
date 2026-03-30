@@ -60,7 +60,7 @@ resultType="int">
 
 <select id="getOrganUserCertDetail" parameterType="int" resultType="AdminCompanyCertificationDTO">
 		SELECT tu.user_no, tu.ORGAN_NAME, tu.user_name , tu.USER_ID , tu.USER_EMAIL , tu.user_birth,
-		toc.ORGAN_NO, tbo.organ_cert_num, toc.organ_file_system_name, toc.organ_file_original_name
+		toc.ORGAN_NO, tbo.organ_cert_num, toc.organ_file_system_name, toc.organ_file_original_name, tu.user_status
 		 FROM tbl_user tu
 		LEFT JOIN TBL_ORGAN_CERT toc ON toc.USER_NO = tu.user_no
 		JOIN TBL_ORGAN tbo on toc.organ_no = tbo.organ_no
